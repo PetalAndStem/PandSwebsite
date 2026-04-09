@@ -58,6 +58,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 52px;display:fl
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
 /* HERO - unified single canvas */
 .hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden;padding:0 6vw}
+.hero::before{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,transparent 0%,#FAF8F3 100%);z-index:4;pointer-events:none}
 .hc{position:relative;z-index:3;width:55%;max-width:620px;padding-right:16px}
 .hey{font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--td);margin-bottom:16px;animation:ri 1.4s .1s both}
 .hti{font-size:clamp(52px,7.5vw,92px);color:var(--dk);line-height:1.05;margin-bottom:8px;animation:ri 1.4s .3s both;font-family:'Great Vibes',cursive;font-weight:400}
@@ -112,7 +113,7 @@ section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;
 .rv.in{opacity:1;transform:none}
 
 /* WHAT IS */
-#wi{background:var(--iv);padding-top:80px;padding-bottom:80px}
+#wi{background:#FAF8F3;padding-top:80px;padding-bottom:80px}
 .wg{display:grid;grid-template-columns:1fr 1fr;max-width:1100px;margin:0 auto;align-items:stretch;gap:0}
 .wt{padding:56px 72px 56px 0}
 .wt p{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--md);line-height:1.85;margin-top:28px}
