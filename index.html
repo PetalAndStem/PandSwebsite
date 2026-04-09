@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Petal &amp; Stem — Curated Bloom Bar</title>
+<meta name="description" content="Petal &amp; Stem creates interactive bloom bar experiences for showers, birthdays, corporate events, and celebrations across Massachusetts.">
+<meta name="theme-color" content="#FAF8F3">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -14,42 +18,59 @@
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Jost',sans-serif;
 }
-html{scroll-behavior:smooth}
-body{background:var(--iv);color:var(--dk);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+body{background:var(--iv);color:var(--dk);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 52px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,248,243,0.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(196,184,168,0.22)}
-.nl{font-size:26px;color:var(--dk);text-decoration:none;font-family:'Brittany',cursive;letter-spacing:.01em}
+.nl{font-size:26px;color:var(--dk);text-decoration:none;font-family:'Great Vibes',cursive;letter-spacing:.01em}
 .nm{display:flex;gap:40px;list-style:none}
 .nm a{font-family:var(--sans);font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--md);text-decoration:none;transition:color .3s}
 .nm a:hover{color:var(--dk)}
 .nc{font-family:var(--sans);font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--dk);text-decoration:none;border-bottom:1px solid var(--tp);padding-bottom:2px;transition:border-color .3s}
 .nc:hover{border-color:var(--dk)}
+.mnu{display:none}
+.btn:focus-visible,.nc:focus-visible,.nm a:focus-visible{outline:2px solid var(--tp);outline-offset:3px;border-radius:3px}
 
 /* HERO bg and petals */
-.hbg{position:absolute;inset:0;background:radial-gradient(ellipse at 25% 35%,rgba(232,216,208,.55) 0%,transparent 50%),radial-gradient(ellipse at 78% 60%,rgba(184,196,178,.36) 0%,transparent 45%),radial-gradient(ellipse at 50% 80%,rgba(237,228,212,.4) 0%,transparent 55%),linear-gradient(155deg,#f9f5ee 0%,#f2e9da 45%,#eee5d5 100%)}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(232,216,208,.45) 0%,transparent 55%),radial-gradient(ellipse at 75% 55%,rgba(237,228,212,.35) 0%,transparent 50%),radial-gradient(ellipse at 55% 88%,rgba(232,220,208,.3) 0%,transparent 45%),#f6f1e8}
 .hp{position:absolute;border-radius:50% 50% 50% 0/60% 60% 40% 40%;pointer-events:none}
 .hp1{width:380px;height:460px;background:rgba(232,216,208,.18);top:-80px;left:-100px;transform:rotate(-18deg);animation:flt 9s ease-in-out infinite}
 .hp2{width:280px;height:340px;background:rgba(237,228,212,.16);bottom:20px;right:-70px;transform:rotate(28deg);animation:flt 11s 3s ease-in-out infinite}
 .hp3{width:200px;height:260px;background:rgba(184,196,178,.14);top:28%;left:6%;transform:rotate(12deg);animation:flt 8s 5s ease-in-out infinite}
 .hp4{width:220px;height:280px;background:rgba(232,216,208,.12);top:8%;right:8%;transform:rotate(-32deg);animation:flt 10s 2s ease-in-out infinite}
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-/* HERO - left aligned */
-.hero{position:relative;height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;overflow:hidden;padding-left:52px;padding-right:52px}
-.hc{position:relative;z-index:2;max-width:640px;padding:0}
-.hey{font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--td);margin-bottom:26px;animation:ri 1.4s .1s both}
-.hti{font-size:clamp(68px,10vw,104px);color:var(--dk);line-height:1.05;margin-bottom:8px;animation:ri 1.4s .3s both;font-family:'Brittany',cursive;font-weight:400}
-.hrl{width:50px;height:1px;background:var(--tp);margin:18px 0 22px;animation:ri 1.4s .5s both}
-.hhl{font-family:var(--serif);font-size:clamp(17px,2.2vw,22px);font-weight:300;font-style:italic;color:var(--md);line-height:1.5;margin-bottom:12px;animation:ri 1.4s .55s both}
-.hsb{font-family:var(--sans);font-size:14px;letter-spacing:.03em;color:var(--lt);max-width:460px;margin:0 0 42px;line-height:1.85;animation:ri 1.4s .65s both}
+/* HERO - unified single canvas */
+.hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden;padding:0 52px}
+.hc{position:relative;z-index:3;width:52%;padding-right:24px}
+.hey{font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--td);margin-bottom:16px;animation:ri 1.4s .1s both}
+.hti{font-size:clamp(52px,7.5vw,92px);color:var(--dk);line-height:1.05;margin-bottom:8px;animation:ri 1.4s .3s both;font-family:'Great Vibes',cursive;font-weight:400}
+.hhl{font-family:var(--serif);font-size:clamp(15px,1.8vw,20px);font-weight:300;font-style:italic;color:var(--md);line-height:1.5;margin-bottom:10px;margin-top:18px;animation:ri 1.4s .55s both}
+.hsb{font-family:var(--sans);font-size:13px;letter-spacing:.03em;color:var(--lt);max-width:380px;margin:0 0 32px;line-height:1.85;animation:ri 1.4s .65s both}
 .hbw{animation:ri 1.4s .8s both}
+/* Hero botanical SVG — overlaps into right half of text area */
+.hsvg{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:56%;height:96%;z-index:1;pointer-events:none;opacity:.78;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.4) 12%,black 28%);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.4) 12%,black 28%)}
 @keyframes ri{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.scr{position:absolute;bottom:44px;left:52px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--tp);animation:ri 1.4s 1.3s both}
+.scr{position:absolute;bottom:32px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--tp);animation:ri 1.4s 1.3s both;z-index:5}
 .scr::after{content:'';display:block;width:1px;height:44px;background:linear-gradient(to bottom,var(--tp),transparent);animation:pls 2.5s ease-in-out infinite}
 @keyframes pls{0%,100%{opacity:.3}50%{opacity:.9}}
+@keyframes sparkle{0%,100%{opacity:0;transform:scale(0)}20%{opacity:.9;transform:scale(1)}80%{opacity:.6;transform:scale(.8)}}
+@keyframes float2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(180deg)}}
+.spark{position:absolute;pointer-events:none;z-index:1}
+.spark::before,.spark::after{content:'';position:absolute;width:3px;height:3px;border-radius:50%}
+.spark::before{background:var(--tp);animation:sparkle 3s ease-in-out infinite}
+.spark::after{background:var(--sg);width:2px;height:2px;top:8px;left:8px;animation:sparkle 3s 1.5s ease-in-out infinite}
+.s1{top:18%;left:12%;animation:float2 7s ease-in-out infinite}
+.s2{top:35%;left:22%;animation:float2 9s 1s ease-in-out infinite}
+.s3{top:55%;left:8%;animation:float2 8s 2s ease-in-out infinite}
+.s4{top:22%;left:40%;animation:float2 6s .5s ease-in-out infinite}
+.s5{top:70%;left:32%;animation:float2 10s 3s ease-in-out infinite}
+.s6{top:14%;left:48%;animation:float2 7.5s 1.5s ease-in-out infinite}
+.s7{top:80%;left:18%;animation:float2 8.5s 2.5s ease-in-out infinite}
+.s8{top:42%;left:5%;animation:float2 6.5s 4s ease-in-out infinite}
 
 /* BUTTONS */
-.btn{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .3s;border-radius:40px}
+.btn{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .3s;border-radius:40px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .bd{color:var(--iv);background:var(--dk);padding:15px 42px}
 .bd:hover{background:var(--td);transform:translateY(-1px)}
 .bo{color:var(--dk);background:transparent;border:1px solid rgba(196,184,168,.7);padding:14px 34px}
@@ -57,8 +78,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 52px;display:fl
 .bs{color:var(--dk);background:rgba(255,255,255,.6);border:1px solid rgba(196,184,168,.4);padding:15px 46px}
 .bs:hover{background:rgba(255,255,255,.85)}
 
+/* SECTION TRANSITIONS */
+section{padding:100px 52px;position:relative}
+section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;pointer-events:none;z-index:4}
+#wi::after{background:linear-gradient(to bottom,transparent,var(--cr))}
+#fo::after{background:linear-gradient(to bottom,transparent,var(--iv))}
+#pf::after{background:linear-gradient(to bottom,transparent,var(--cr))}
+#hw::after{background:linear-gradient(to bottom,transparent,var(--iv))}
+#gl::after{background:linear-gradient(to bottom,transparent,var(--cr))}
+#pk::after{display:none}
+.hero::after{display:none}
 /* SHARED */
-section{padding:100px 52px}
 .lbl{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--td);margin-bottom:18px;display:block}
 .ttl{font-family:var(--serif);font-size:clamp(34px,4.5vw,52px);font-weight:300;color:var(--dk);line-height:1.2}
 .ttl em{font-style:italic;color:var(--td)}
@@ -66,32 +96,34 @@ section{padding:100px 52px}
 .rv.in{opacity:1;transform:none}
 
 /* WHAT IS */
-#wi{background:var(--iv)}
-.wg{display:grid;grid-template-columns:1fr 1fr;max-width:1100px;margin:0 auto;align-items:center;gap:0}
-.wt{padding-right:72px}
+#wi{background:var(--iv);padding-top:80px;padding-bottom:80px}
+.wg{display:grid;grid-template-columns:1fr 1fr;max-width:1100px;margin:0 auto;align-items:stretch;gap:0}
+.wt{padding:56px 72px 56px 0}
 .wt p{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--md);line-height:1.85;margin-top:28px}
 .wt p+p{margin-top:14px}
-.wv{position:relative;height:460px;background:var(--cr);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wv{position:relative;height:460px;background:var(--cr);display:flex;align-items:center;justify-content:center;overflow:visible;min-height:420px;isolation:isolate}
 .wv::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 55% 40%,rgba(232,216,208,.55) 0%,transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(184,196,178,.32) 0%,transparent 50%)}
+.wv-frame{position:absolute;top:-18px;left:-18px;width:55%;height:55%;border-top:1px solid var(--tp);border-left:1px solid var(--tp);z-index:3;pointer-events:none;opacity:.65}
 
 /* FOUNDER */
 #fo{background:var(--cr)}
-.fg{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1100px;margin:0 auto;align-items:center}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1100px;margin:0 auto;align-items:center;padding:0}
 .ff{position:relative;width:100%;aspect-ratio:3/4;background:var(--ch);overflow:visible}
-.ff-inner{position:absolute;inset:0;overflow:hidden;background:var(--ch)}
+.ff-inner{position:absolute;inset:0;overflow:hidden;background:var(--ch);z-index:1}
 .ff-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(232,216,208,.72) 0%,transparent 60%),radial-gradient(ellipse at 70% 75%,rgba(184,196,178,.36) 0%,transparent 45%)}
-.fb{position:absolute;border:1px solid var(--tp);top:16px;left:16px;right:-16px;bottom:-16px;z-index:-1}
-.fq{position:absolute;bottom:-12px;right:22px;font-size:19px;color:var(--td);z-index:2;font-family:'Brittany',cursive}
+.fb{position:absolute;border:1px solid var(--tp);top:20px;left:20px;right:-20px;bottom:-20px;z-index:0;opacity:.65}
+.fq{position:absolute;bottom:-12px;right:22px;font-size:19px;color:var(--td);z-index:2;font-family:'Great Vibes',cursive}
 .ft p{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--md);line-height:1.95;margin-bottom:16px}
+.sig{font-family:'Great Vibes',cursive !important;font-size:32px !important;color:var(--td) !important;margin-top:24px !important;font-weight:400 !important;line-height:1.4 !important;letter-spacing:.02em}
 .ft .lbl{margin-bottom:12px}
 .ft .ttl{margin-bottom:34px}
 
 /* PERFECT FOR */
-#pf{background:var(--iv)}
-.og{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ch);border:1px solid var(--ch);margin-top:56px;max-width:1060px}
+#pf{background:var(--iv);text-align:center}
+.og{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ch);border:1px solid var(--ch);margin-top:56px;max-width:1060px;margin-left:auto;margin-right:auto}
 .oi{padding:40px 18px;transition:background .4s}
-.oi svg{width:34px;height:34px;margin:0 0 16px;display:block}
-.on{font-family:var(--serif);font-size:14px;color:var(--dk);letter-spacing:.02em}
+.oi svg{width:34px;height:34px;margin:0 auto 16px;display:block}
+.on{font-family:var(--serif);font-size:14px;color:var(--dk);letter-spacing:.02em;text-align:center}
 .oi:nth-child(1){background:#FAF5F4}.oi:nth-child(2){background:#F6F8F4}.oi:nth-child(3){background:#FBF7F2}.oi:nth-child(4){background:#F4F7F6}
 .oi:nth-child(5){background:#FAF5F4}.oi:nth-child(6){background:#F6F8F4}.oi:nth-child(7){background:#FBF7F2}.oi:nth-child(8){background:#F4F7F6}
 .oi:nth-child(1):hover{background:#F5EAE8}.oi:nth-child(2):hover{background:#EDF2EA}.oi:nth-child(3):hover{background:#F5EDE4}.oi:nth-child(4):hover{background:#E8F0EC}
@@ -109,11 +141,11 @@ section{padding:100px 52px}
 .st:nth-child(3)::before{background:linear-gradient(to right,rgba(237,228,212,.7),transparent)}
 .si{width:100%;height:100px;margin-bottom:20px}
 .sn{font-family:var(--serif);font-size:68px;font-weight:300;color:rgba(196,184,168,.32);line-height:1;margin-bottom:14px;display:block}
-.sh{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--dk);margin-bottom:10px;white-space:nowrap}
+.sh{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--dk);margin-bottom:10px}
 .sc{font-family:var(--sans);font-size:13px;color:var(--md);line-height:1.85;font-weight:300}
 
 /* GALLERY */
-#gl{background:var(--iv);padding:90px 0}
+#gl{background:var(--iv);padding:90px 0;position:relative}
 .gi{max-width:1140px;margin:0 auto;padding:0 52px}
 .gg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:56px}
 .gp{overflow:hidden;position:relative}
@@ -122,20 +154,20 @@ section{padding:100px 52px}
 .gp3{grid-column:2/4;height:320px}
 .gp4{grid-column:1/-1;height:250px}
 .gb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden}
-.gc1{background:linear-gradient(130deg,#ede4d4,#e4d8c8)}
-.gc2{background:linear-gradient(145deg,#e8d8d0,#ddc8bc)}
-.gc3{background:linear-gradient(125deg,#dde4da,#ccd6c8)}
-.gc4{background:linear-gradient(140deg,#f0e8dc,#e8dccc)}
+.gc1{background:linear-gradient(130deg,#e8ddd0,#ded0c0)}
+.gc2{background:linear-gradient(145deg,#e4d2c8,#d8c4b8)}
+.gc3{background:linear-gradient(125deg,#d6e0d2,#c4d0bc)}
+.gc4{background:linear-gradient(140deg,#ece4d8,#e2d4c4)}
 .gt{font-family:var(--serif);font-style:italic;font-size:12px;color:var(--td);opacity:.6;letter-spacing:.04em;position:absolute;bottom:14px;left:50%;transform:translateX(-50%);white-space:nowrap}
-.gc-cap{text-align:left;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--lt);max-width:580px;margin:40px 0 0;line-height:1.6}
+.gc-cap{text-align:left;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--md);max-width:580px;margin:40px 0 0;line-height:1.6}
 
 /* PACKAGES */
 #pk{background:var(--cr)}
 .pi{max-width:560px;margin-bottom:60px}
 .pi p{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--md);line-height:1.85;margin-top:22px}
 .ins{font-size:12px !important;color:var(--lt) !important;margin-top:10px !important;font-family:var(--sans) !important;letter-spacing:.03em}
-.pg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--ch);border:1px solid var(--ch)}
-.pc{background:var(--cr);padding:44px 34px;transition:background .3s}
+.pg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid rgba(196,184,168,.3)}
+.pc{background:var(--cr);padding:44px 34px;transition:background .3s;border-right:1px solid rgba(196,184,168,.22)}
 .pc:hover{background:#f7f3ec}
 .ptg{font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--td);margin-bottom:14px;display:block}
 .pn{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--dk);line-height:1.15;margin-bottom:10px}
@@ -145,52 +177,57 @@ section{padding:100px 52px}
 .pp{font-family:var(--serif);font-size:36px;font-weight:300;color:var(--dk);margin-bottom:5px}
 .pm{font-family:var(--sans);font-size:11px;color:var(--lt);letter-spacing:.08em;margin-bottom:22px;display:block}
 .pfn{margin-top:32px;font-family:var(--sans);font-size:10px;color:var(--lt);line-height:1.8;max-width:700px;opacity:.8}
+.pc:last-child{border-right:none}
 
-/* CTA */
-#ct{background:linear-gradient(148deg,#ede0d4 0%,#e4d8cc 35%,#d8e0d4 70%,#e8ddd4 100%);padding:130px 52px;text-align:left}
+/* CTA — unified single-canvas section */
+#ct{background:linear-gradient(150deg,#f0e6dc 0%,#ecddd2 50%,#e8d8cc 100%);padding:110px 52px;position:relative;overflow:hidden}
+#ct::after{display:none}
 #ct .lbl{color:var(--td)}
-#ct .ttl{color:#4A3E38;max-width:600px;margin:0 0 16px}
-#ct .cp{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--md);max-width:520px;margin:0 0 46px;line-height:1.7}
+#ct .ttl{color:#4A3E38;max-width:480px;margin:0 0 16px}
+#ct .cp{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--md);max-width:440px;margin:0 0 42px;line-height:1.7}
+.ct-grid{position:relative;max-width:1100px;margin:0 auto;display:flex;align-items:center;min-height:360px}
+.ct-text{position:relative;z-index:3;max-width:520px}
+.ct-img{position:absolute;right:0;top:50%;transform:translateY(-50%);width:44%;height:100%;pointer-events:none;z-index:1;display:flex;align-items:center;justify-content:center;overflow:hidden}
 
 /* FOOTER */
 footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38px 52px;display:flex;align-items:center;justify-content:space-between}
-.fl{font-size:24px;color:var(--dk);font-family:'Brittany',cursive}
+.fl{font-size:24px;color:var(--dk);font-family:'Great Vibes',cursive}
 .fm{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--md)}
 .fc{font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--md)}
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  nav{padding:16px 20px}.nm{display:none}
-  section{padding:72px 22px}
-  .hero{padding-left:24px;padding-right:24px;align-items:flex-start}
-  .scr{left:24px}
+  nav{padding:14px 20px}.nm{display:none}.nl span{font-size:22px}
+  .mnu{display:flex;background:none;border:none;cursor:pointer;font-size:20px;color:var(--dk);padding:4px}
+  .nm.open{display:flex;flex-direction:column;gap:0;position:fixed;top:56px;left:0;right:0;background:rgba(250,248,243,.97);backdrop-filter:blur(14px);padding:16px 24px 24px;border-bottom:1px solid rgba(196,184,168,.22);z-index:99}
+  .nm.open a{padding:12px 0;border-bottom:1px solid rgba(196,184,168,.12);font-size:13px}
+  section{padding:64px 24px}
+  .hero{height:100vh;padding:0 24px;align-items:center}
+  .hc{width:100%;padding-right:0}
+  .hsvg{width:60%;height:65%;right:-10px;top:auto;bottom:-10px;transform:none;opacity:.28;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.4) 20%,black 45%);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.4) 20%,black 45%)}
+  .scr{display:flex;bottom:24px}
   #gl{padding:72px 0}.gi{padding:0 22px}
-  .wg{grid-template-columns:1fr}.wt{padding-right:0;margin-bottom:32px}.wv{height:280px}
-  .fg{grid-template-columns:1fr;gap:40px}.ff{aspect-ratio:4/3}
-  .og{grid-template-columns:repeat(2,1fr)}
+  .wg{grid-template-columns:1fr}.wt{padding:40px 32px 36px;border-right:none}.wv{height:300px}
+  .fg{grid-template-columns:1fr;gap:32px;padding:28px}.ff{aspect-ratio:3/4;max-height:340px}
+  .og{grid-template-columns:repeat(2,1fr);max-width:100%;margin-left:0;margin-right:0}
   .ss{grid-template-columns:1fr}.sh{white-space:normal}
-  .gg{grid-template-columns:1fr}.gp1,.gp2,.gp3,.gp4{grid-column:auto;height:220px}
+  .gg{grid-template-columns:1fr}.gp1,.gp2,.gp3,.gp4{grid-column:auto;height:200px}
   .pg{grid-template-columns:1fr}
+  .ct-img{display:none}.ct-text{max-width:100%;position:relative;z-index:3}
   footer{flex-direction:column;gap:10px;text-align:center;padding:30px 20px}
-  .hti{font-size:clamp(52px,14vw,80px)}
-  #ct{padding:90px 24px}
+  .hti{font-size:clamp(44px,13vw,72px)}
+  #ct{padding:72px 24px}
 }
 @media(max-width:500px){
-  .og{grid-template-columns:repeat(2,1fr)}
+  .og{grid-template-columns:repeat(2,1fr);max-width:100%;margin-left:0;margin-right:0}
   .ss{grid-template-columns:1fr}
 }
-</style>
-<!-- Brittany Signature font via CDN fallback using a close match -->
-<style>
-  /* Use Great Vibes as the closest Google Fonts match to Brittany Signature */
-  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-  .nl,.hti,.fl,.fq{font-family:'Great Vibes',cursive !important}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="nl" style="display:flex;align-items:center;gap:12px;text-decoration:none">
+  <a href="#home" class="nl" style="display:flex;align-items:center;gap:12px;text-decoration:none">
     <!-- Icon: single stem with bloom, inspired by the attached reference -->
     <svg width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;opacity:.82">
       <!-- Stem -->
@@ -211,26 +248,92 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
     <span style="font-family:'Great Vibes',cursive;font-size:26px;color:var(--dk)">Petal &amp; Stem</span>
   </a>
   <ul class="nm">
+    <li><a href="#fo">Our Story</a></li>
     <li><a href="#wi">About</a></li>
     <li><a href="#hw">How It Works</a></li>
     <li><a href="#pk">Packages</a></li>
     <li><a href="#ct">Contact</a></li>
   </ul>
-  <a href="#ct" class="nc">Inquire Now</a>
+  <a href="#" class="nc" onclick="openMail();return false;">Inquire Now</a>
+  <button class="mnu" onclick="this.classList.toggle('open');document.querySelector('.nm').classList.toggle('open')" aria-label="Menu">&#9776;</button>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hbg"></div>
   <div class="hp hp1"></div><div class="hp hp2"></div><div class="hp hp3"></div><div class="hp hp4"></div>
+  <div class="spark s1"></div><div class="spark s2"></div><div class="spark s3"></div><div class="spark s4"></div><div class="spark s5"></div><div class="spark s6"></div><div class="spark s7"></div><div class="spark s8"></div>
   <div class="hc">
     <p class="hey">Curated Bloom Bar &nbsp;&middot;&nbsp; Massachusetts</p>
     <h1 class="hti">Petal &amp; Stem</h1>
-    <div class="hrl"></div>
     <p class="hhl">A curated bloom bar experience for showers, celebrations &amp; events.</p>
     <p class="hsb">An interactive floral experience where guests build their own hand-tied bouquets using thoughtfully selected seasonal blooms.</p>
-    <div class="hbw"><a href="#ct" class="btn bd">Inquire Now</a></div>
+    <div class="hbw"><a href="#" class="btn bd" onclick="openMail();return false;">Inquire Now</a></div>
   </div>
+  <!-- Hero botanical -->
+  <svg class="hsvg" viewBox="0 0 420 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Main tall stem -->
+        <path d="M210 540 C210 488 206 438 208 380 C210 326 208 268 208 210" stroke="#B8C4B2" stroke-width="3" stroke-linecap="round"/>
+        <!-- Left branch -->
+        <path d="M208 390 C182 362 148 356 130 328" stroke="#B8C4B2" stroke-width="2.2" stroke-linecap="round"/>
+        <!-- Right branch -->
+        <path d="M208 340 C238 310 268 306 282 278" stroke="#C4B8A8" stroke-width="2" stroke-linecap="round"/>
+        <!-- Small left branch -->
+        <path d="M208 448 C186 428 160 420 146 398" stroke="#B8C4B2" stroke-width="1.6" stroke-linecap="round"/>
+        <!-- Leaves on main stem -->
+        <path d="M208 412 C182 388 148 382 132 356 C152 358 190 374 208 394" fill="#C8D4C0" opacity=".7"/>
+        <path d="M209 358 C238 330 272 326 284 298 C262 302 226 318 209 340" fill="#C8D4C0" opacity=".62"/>
+        <path d="M208 462 C186 444 158 440 146 420 C162 422 194 436 208 452" fill="#D0D8C8" opacity=".55"/>
+        <!-- Small leaf accent -->
+        <path d="M208 296 C224 274 248 270 256 250 C238 254 212 268 208 286" fill="#C8D4C0" opacity=".5"/>
+        <!-- CENTER MAIN BLOOM — large layered rose -->
+        <ellipse cx="208" cy="186" rx="22" ry="30" fill="#EDE4D4" opacity=".92" transform="rotate(-14 208 186)"/>
+        <ellipse cx="208" cy="186" rx="22" ry="30" fill="#E8D8D0" opacity=".87" transform="rotate(22 208 186)"/>
+        <ellipse cx="208" cy="186" rx="22" ry="30" fill="#DDD0C8" opacity=".83" transform="rotate(58 208 186)"/>
+        <ellipse cx="208" cy="186" rx="22" ry="30" fill="#EDE4D4" opacity=".85" transform="rotate(94 208 186)"/>
+        <ellipse cx="208" cy="186" rx="22" ry="30" fill="#E4D8CC" opacity=".8" transform="rotate(130 208 186)"/>
+        <circle cx="208" cy="186" r="26" fill="#F5EDE4" opacity=".96"/>
+        <circle cx="208" cy="186" r="11" fill="#EAD8CC" opacity=".9"/>
+        <circle cx="203" cy="182" r="2.5" fill="#D8C8BC" opacity=".7"/>
+        <circle cx="213" cy="184" r="2" fill="#D8C8BC" opacity=".62"/>
+        <circle cx="207" cy="191" r="2" fill="#D8C8BC" opacity=".65"/>
+        <!-- LEFT BRANCH BLOOM — sage/green -->
+        <ellipse cx="130" cy="310" rx="16" ry="21" fill="#C8D4C0" opacity=".88" transform="rotate(-10 130 310)"/>
+        <ellipse cx="130" cy="310" rx="16" ry="21" fill="#B8C4B2" opacity=".82" transform="rotate(30 130 310)"/>
+        <ellipse cx="130" cy="310" rx="16" ry="21" fill="#C8D4C0" opacity=".78" transform="rotate(70 130 310)"/>
+        <circle cx="130" cy="310" r="18" fill="#DCE8D4" opacity=".93"/>
+        <circle cx="130" cy="310" r="7.5" fill="#C4D4BC" opacity=".88"/>
+        <circle cx="126" cy="306" r="2" fill="#B4C4AC" opacity=".68"/>
+        <circle cx="134" cy="308" r="1.7" fill="#B4C4AC" opacity=".6"/>
+        <!-- RIGHT BRANCH BLOOM — blush -->
+        <ellipse cx="282" cy="262" rx="15" ry="19" fill="#E8D8D0" opacity=".88" transform="rotate(14 282 262)"/>
+        <ellipse cx="282" cy="262" rx="15" ry="19" fill="#E0D0C8" opacity=".82" transform="rotate(54 282 262)"/>
+        <ellipse cx="282" cy="262" rx="15" ry="19" fill="#E8D8D0" opacity=".78" transform="rotate(94 282 262)"/>
+        <circle cx="282" cy="262" r="17" fill="#F0E8E0" opacity=".93"/>
+        <circle cx="282" cy="262" r="7" fill="#E4D4C8" opacity=".86"/>
+        <!-- SMALL LOWER LEFT BUD -->
+        <ellipse cx="146" cy="386" rx="10" ry="13" fill="#E8D8D0" opacity=".8" transform="rotate(-8 146 386)"/>
+        <ellipse cx="146" cy="386" rx="10" ry="13" fill="#DDD0C8" opacity=".74" transform="rotate(32 146 386)"/>
+        <circle cx="146" cy="386" r="12" fill="#F0E8E0" opacity=".9"/>
+        <circle cx="146" cy="386" r="5" fill="#E4D4C8" opacity=".82"/>
+        <!-- ACCENT BUDS scattered -->
+        <ellipse cx="182" cy="168" rx="7" ry="10" fill="#E8D8D0" opacity=".62" transform="rotate(-22 182 168)"/>
+        <circle cx="182" cy="168" r="8" fill="#F0E4DC" opacity=".76"/>
+        <ellipse cx="240" cy="162" rx="7" ry="9" fill="#C4D0BC" opacity=".58" transform="rotate(18 240 162)"/>
+        <circle cx="240" cy="162" r="7" fill="#DCE8D4" opacity=".72"/>
+        <ellipse cx="165" cy="230" rx="5" ry="7" fill="#E8D8D0" opacity=".52" transform="rotate(10 165 230)"/>
+        <ellipse cx="252" cy="216" rx="5" ry="6" fill="#C4D0BC" opacity=".48" transform="rotate(-14 252 216)"/>
+        <!-- Foliage sprigs extending out -->
+        <path d="M138 320 C118 304 102 288 94 266" stroke="#B8C4B2" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+        <ellipse cx="90" cy="260" rx="8" ry="12" fill="#C8D4C0" opacity=".45" transform="rotate(-18 90 260)"/>
+        <path d="M290 270 C310 252 324 234 330 210" stroke="#B8C4B2" stroke-width="1.4" stroke-linecap="round" opacity=".52"/>
+        <ellipse cx="332" cy="204" rx="8" ry="11" fill="#C8D4C0" opacity=".42" transform="rotate(20 332 204)"/>
+        <!-- Kraft wrap at base -->
+        <path d="M188 540 C184 510 178 480 180 452 L208 446 L236 452 C238 480 232 510 228 540 Z" fill="#C4B8A8" opacity=".28"/>
+        <path d="M182 528 C183 506 181 482 183 460" stroke="#B4A894" stroke-width="1" opacity=".32" stroke-linecap="round"/>
+        <path d="M233 528 C232 506 234 482 232 460" stroke="#B4A894" stroke-width="1" opacity=".32" stroke-linecap="round"/>
+        <path d="M178 462 C190 457 224 457 238 462" stroke="#C4B8A8" stroke-width="1.4" stroke-linecap="round" opacity=".5"/>
+      </svg>
   <div class="scr">Discover</div>
 </section>
 
@@ -244,15 +347,16 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
       <p>It&rsquo;s part activity, part d&eacute;cor, and part take-home favor, designed to make your event feel both elevated and memorable.</p>
     </div>
     <div class="wv rv">
-      <svg viewBox="0 0 380 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;width:68%;height:68%;opacity:.58">
+      <div class="wv-frame"></div>
+      <svg viewBox="0 0 380 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;width:62%;max-height:400px;opacity:.82">
         <path d="M190 440 C190 395 186 355 189 308 C192 265 190 222 190 180" stroke="#B8C4B2" stroke-width="2.5" stroke-linecap="round"/>
         <path d="M189 355 C168 332 138 328 126 305 C143 305 177 318 189 336" fill="#C8D4C0" opacity=".68"/>
         <path d="M190 308 C213 283 246 280 255 258 C237 260 205 274 190 294" fill="#C8D4C0" opacity=".58"/>
-        <ellipse cx="190" cy="158" rx="16" ry="24" fill="#EDE4D4" opacity=".88" transform="rotate(-15 190 158)"/>
-        <ellipse cx="190" cy="158" rx="16" ry="24" fill="#E8D8D0" opacity=".83" transform="rotate(25 190 158)"/>
-        <ellipse cx="190" cy="158" rx="16" ry="24" fill="#DDD0C8" opacity=".78" transform="rotate(65 190 158)"/>
-        <ellipse cx="190" cy="158" rx="16" ry="24" fill="#EDE4D4" opacity=".8" transform="rotate(105 190 158)"/>
-        <circle cx="190" cy="158" r="20" fill="#F5EDE4" opacity=".93"/><circle cx="190" cy="158" r="9" fill="#E8D8CC" opacity=".88"/>
+        <ellipse cx="190" cy="158" rx="16" ry="24" fill="#E8D8E8" opacity=".88" transform="rotate(-15 190 158)"/>
+        <ellipse cx="190" cy="158" rx="16" ry="24" fill="#DCCCE0" opacity=".83" transform="rotate(25 190 158)"/>
+        <ellipse cx="190" cy="158" rx="16" ry="24" fill="#D0C8DC" opacity=".78" transform="rotate(65 190 158)"/>
+        <ellipse cx="190" cy="158" rx="16" ry="24" fill="#E4D4E8" opacity=".8" transform="rotate(105 190 158)"/>
+        <circle cx="190" cy="158" r="20" fill="#F2EAF0" opacity=".93"/><circle cx="190" cy="158" r="9" fill="#E0CCE0" opacity=".88"/>
         <path d="M136 248 C134 216 131 196 134 174" stroke="#B8C4B2" stroke-width="1.5" stroke-linecap="round"/>
         <ellipse cx="134" cy="158" rx="11" ry="17" fill="#E8D8D0" opacity=".68" transform="rotate(-10 134 158)"/>
         <ellipse cx="134" cy="158" rx="11" ry="17" fill="#DDD0C8" opacity=".62" transform="rotate(30 134 158)"/>
@@ -277,7 +381,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
       <div class="ff">
         <div class="fb"></div>
         <div class="ff-inner">
-          <svg viewBox="0 0 340 460" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;padding:28px;opacity:.62;z-index:1">
+          <svg viewBox="0 0 340 460" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;padding:28px;opacity:.78;z-index:1">
             <path d="M170 430 C170 385 166 340 168 292 C170 248 168 200 168 158" stroke="#B8C4B2" stroke-width="2.5" stroke-linecap="round"/>
             <path d="M168 310 C148 288 120 282 108 260" stroke="#B8C4B2" stroke-width="1.8" stroke-linecap="round"/>
             <path d="M168 268 C192 244 220 242 230 218" stroke="#C4B8A8" stroke-width="1.6" stroke-linecap="round"/>
@@ -285,11 +389,11 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
             <path d="M168 320 C148 300 118 296 106 274 C124 274 158 286 168 304" fill="#C8D4C0" opacity=".65"/>
             <path d="M169 278 C192 256 224 253 233 230 C214 232 182 246 169 264" fill="#C8D4C0" opacity=".55"/>
             <path d="M168 358 C150 340 130 337 122 318 C136 320 162 332 168 346" fill="#D0D8C8" opacity=".48"/>
-            <ellipse cx="168" cy="140" rx="17" ry="26" fill="#EDE4D4" opacity=".9" transform="rotate(-15 168 140)"/>
-            <ellipse cx="168" cy="140" rx="17" ry="26" fill="#E8D8D0" opacity=".85" transform="rotate(25 168 140)"/>
-            <ellipse cx="168" cy="140" rx="17" ry="26" fill="#DDD0C8" opacity=".8" transform="rotate(65 168 140)"/>
-            <ellipse cx="168" cy="140" rx="17" ry="26" fill="#EDE4D4" opacity=".82" transform="rotate(105 168 140)"/>
-            <circle cx="168" cy="140" r="21" fill="#F5EDE4" opacity=".94"/><circle cx="168" cy="140" r="9" fill="#E8D8CC" opacity=".9"/>
+            <ellipse cx="168" cy="140" rx="17" ry="26" fill="#F4DDD0" opacity=".9" transform="rotate(-15 168 140)"/>
+            <ellipse cx="168" cy="140" rx="17" ry="26" fill="#EED0C0" opacity=".85" transform="rotate(25 168 140)"/>
+            <ellipse cx="168" cy="140" rx="17" ry="26" fill="#E8C8B4" opacity=".8" transform="rotate(65 168 140)"/>
+            <ellipse cx="168" cy="140" rx="17" ry="26" fill="#F2D8C8" opacity=".82" transform="rotate(105 168 140)"/>
+            <circle cx="168" cy="140" r="21" fill="#F8EDE4" opacity=".94"/><circle cx="168" cy="140" r="9" fill="#F0D4BC" opacity=".9"/>
             <ellipse cx="108" cy="244" rx="12" ry="18" fill="#E8D8D0" opacity=".72" transform="rotate(-8 108 244)"/>
             <ellipse cx="108" cy="244" rx="12" ry="18" fill="#DDD0C8" opacity=".65" transform="rotate(32 108 244)"/>
             <circle cx="108" cy="244" r="14" fill="#F0E8E0" opacity=".87"/><circle cx="108" cy="244" r="6" fill="#E4D4C8" opacity=".82"/>
@@ -314,37 +418,38 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
       <p>During COVID, while home with my two young children, I found myself craving a creative outlet, something that brought beauty and calm into the everyday. Floral arranging quickly became that for me.</p>
       <p>As I began sharing my arrangements with friends and family, their encouragement helped me realize this could be something more.</p>
       <p>Petal &amp; Stem was created from a love of gathering, beauty, and thoughtfully designed experiences. My goal is to bring a bloom bar experience that feels romantic, elevated, and memorable for every celebration.</p>
+      <p class="sig">&#8212; Whitney</p>
     </div>
   </div>
 </section>
 
 <!-- PERFECT FOR -->
 <section id="pf">
-  <span class="lbl rv">Made For</span>
-  <h2 class="ttl rv">Perfect <em>For Every</em> Celebration</h2>
+  <span class="lbl rv" style="text-align:center;display:block">Made For</span>
+  <h2 class="ttl rv" style="text-align:center">Perfect <em>For Every</em> Celebration</h2>
   <div class="og rv">
-    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6C18 6 10 13 10 20C10 25 13.5 30 18 30C22.5 30 26 25 26 20C26 13 18 6 18 6Z" stroke="#C4B8A8" stroke-width="1.2"/><path d="M18 12C18 12 13 17 13 21C13 25 15.5 28 18 28" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/></svg><p class="on">Bridal Showers</p></div>
-    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="19" r="9" stroke="#C4B8A8" stroke-width="1.2"/><path d="M18 10C18 7 15.5 5 14 6.5C12.5 8 13 11 15.5 11" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/><path d="M18 10C18 7 20.5 5 22 6.5C23.5 8 23 11 20.5 11" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/></svg><p class="on">Baby Showers</p></div>
-    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><path d="M6 30L10 19L18 11L26 19L30 30" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="11" r="2.5" stroke="#B8C4B2" stroke-width="1"/><path d="M13 30L13 22L23 22L23 30" stroke="#C4B8A8" stroke-width="1"/></svg><p class="on">Birthdays</p></div>
-    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><rect x="6" y="13" width="24" height="17" rx="1" stroke="#C4B8A8" stroke-width="1.2"/><path d="M12 13L12 9M24 13L24 9" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round"/><path d="M6 19L30 19" stroke="#B8C4B2" stroke-width="1"/></svg><p class="on">Corporate Events</p></div>
-    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6L20.5 13L28 13L22 17.5L24 25L18 21L12 25L14 17.5L8 13L15.5 13Z" stroke="#C4B8A8" stroke-width="1.2" stroke-linejoin="round"/></svg><p class="on">Employee Appreciation</p></div>
-    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><circle cx="13" cy="18" r="5" stroke="#C4B8A8" stroke-width="1.2"/><circle cx="23" cy="18" r="5" stroke="#C4B8A8" stroke-width="1.2"/><path d="M8 25C8 21 10 18 13 18" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/><path d="M28 25C28 21 26 18 23 18" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/></svg><p class="on">Brand Activations</p></div>
-    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><path d="M18 8C14 8 10 13 10 17C10 23 18 31 18 31C18 31 26 23 26 17C26 13 22 8 18 8Z" stroke="#C4B8A8" stroke-width="1.2"/><circle cx="18" cy="17" r="3" stroke="#B8C4B2" stroke-width="1"/></svg><p class="on">Private Gatherings</p></div>
-    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><path d="M9 28C9 28 12 17 18 17C24 17 27 28 27 28" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round"/><circle cx="18" cy="11" r="4" stroke="#C4B8A8" stroke-width="1.2"/></svg><p class="on">&amp; Any Celebration</p></div>
+    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><circle cx="13" cy="21" r="7" stroke="#C4B8A8" stroke-width="1.2"/><circle cx="23" cy="21" r="7" stroke="#C4B8A8" stroke-width="1.2"/><path d="M15 11 L13 7 L18 9 L23 7 L21 11Z" stroke="#C4B8A8" stroke-width="1" stroke-linejoin="round"/><path d="M13 11 L15 11 L18 15 L21 11 L23 11" stroke="#B8C4B2" stroke-width="1" stroke-linejoin="round"/></svg><p class="on">Bridal Showers</p></div>
+    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="13" rx="2.5" ry="4" stroke="#C4B8A8" stroke-width="1.2"/><ellipse cx="18" cy="20" rx="9" ry="6" stroke="#C4B8A8" stroke-width="1.2"/><path d="M15 24 C14 27 14 29 18 29 C22 29 22 27 21 24" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/><circle cx="18" cy="30" r="2.5" stroke="#C4B8A8" stroke-width="1"/></svg><p class="on">Baby Showers</p></div>
+    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><rect x="8" y="20" width="20" height="12" rx="2" stroke="#C4B8A8" stroke-width="1.2"/><path d="M8 26 L28 26" stroke="#C4B8A8" stroke-width=".8"/><line x1="14" y1="20" x2="14" y2="14" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round"/><line x1="22" y1="20" x2="22" y2="14" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round"/><path d="M14 12 C14 11 15 10 14 9 C13 10 13 11 14 12Z" fill="#E8D8D0" stroke="#C4B8A8" stroke-width=".8"/><path d="M22 12 C22 11 23 10 22 9 C21 10 21 11 22 12Z" fill="#C8D4C0" stroke="#C4B8A8" stroke-width=".8"/></svg><p class="on">Birthdays</p></div>
+    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><rect x="6" y="14" width="24" height="16" rx="2" stroke="#C4B8A8" stroke-width="1.2"/><path d="M14 14 L14 11 C14 10 15 9 18 9 C21 9 22 10 22 11 L22 14" stroke="#C4B8A8" stroke-width="1.2" stroke-linejoin="round"/><line x1="6" y1="21" x2="30" y2="21" stroke="#B8C4B2" stroke-width="1"/><line x1="18" y1="18" x2="18" y2="24" stroke="#C4B8A8" stroke-width="1" stroke-linecap="round"/></svg><p class="on">Corporate Events</p></div>
+    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><rect x="8" y="16" width="20" height="15" rx="1" stroke="#C4B8A8" stroke-width="1.2"/><rect x="7" y="12" width="22" height="5" rx="1" stroke="#C4B8A8" stroke-width="1.2"/><line x1="18" y1="12" x2="18" y2="31" stroke="#B8C4B2" stroke-width="1"/><path d="M18 12 C18 12 14 9 13 7 C12 5 14 4 16 6 C17 8 18 10 18 12Z" stroke="#C4B8A8" stroke-width="1" stroke-linejoin="round"/><path d="M18 12 C18 12 22 9 23 7 C24 5 22 4 20 6 C19 8 18 10 18 12Z" stroke="#B8C4B2" stroke-width="1" stroke-linejoin="round"/></svg><p class="on">Employee Appreciation</p></div>
+    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><path d="M7 22 L7 16 L14 14 L26 9 L26 29 L14 24 L7 22Z" stroke="#C4B8A8" stroke-width="1.2" stroke-linejoin="round"/><path d="M14 14 L14 24" stroke="#B8C4B2" stroke-width="1"/><path d="M7 22 L7 28 C7 29 8 30 9 29 L12 24" stroke="#C4B8A8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28" cy="19" r="2.5" stroke="#B8C4B2" stroke-width="1"/></svg><p class="on">Brand Activations</p></div>
+    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><path d="M12 8 L10 18 C10 22 13 24 15 24 L15 31 L11 31" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 8 L26 18 C26 22 23 24 21 24 L21 31 L25 31" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 14 L26 14" stroke="#B8C4B2" stroke-width="1"/><path d="M16 6 C17 4 19 4 20 6" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/></svg><p class="on">Private Gatherings</p></div>
+    <div class="oi"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="3" stroke="#C4B8A8" stroke-width="1.2"/><line x1="18" y1="8" x2="18" y2="11" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round"/><line x1="18" y1="25" x2="18" y2="28" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="18" x2="11" y2="18" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round"/><line x1="25" y1="18" x2="28" y2="18" stroke="#C4B8A8" stroke-width="1.2" stroke-linecap="round"/><line x1="11" y1="11" x2="13" y2="13" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/><line x1="23" y1="23" x2="25" y2="25" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/><line x1="25" y1="11" x2="23" y2="13" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/><line x1="13" y1="23" x2="11" y2="25" stroke="#B8C4B2" stroke-width="1" stroke-linecap="round"/></svg><p class="on">&amp; Any Celebration</p></div>
   </div>
-  <span class="ot rv">Thoughtfully designed for celebrations that deserve something a little more special.</span>
+  <span class="ot rv" style="text-align:center;display:block">Thoughtfully designed for celebrations that deserve something a little more special.</span>
 </section>
 
 <!-- HOW IT WORKS -->
 <section id="hw">
   <div class="hi">
-    <span class="lbl rv">The Process</span>
-    <h2 class="ttl rv">How It <em>Works</em></h2>
+    <span class="lbl rv">Bloom by Bloom</span>
+    <h2 class="ttl rv">Every Bouquet Begins <em>Here</em></h2>
     <div class="ss rv">
       <!-- Step 01: Styled bloom bar / cart -->
       <div class="st">
         <div class="si">
-          <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:150px;height:100px;opacity:.65">
+          <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:150px;height:100px;opacity:.95">
             <rect x="28" y="58" width="94" height="30" rx="3" fill="#EDE4D4" stroke="#C4B8A8" stroke-width="1"/>
             <line x1="28" y1="72" x2="122" y2="72" stroke="#C4B8A8" stroke-width=".6" opacity=".45"/>
             <line x1="44" y1="88" x2="38" y2="100" stroke="#C4B8A8" stroke-width="1.4" stroke-linecap="round"/>
@@ -374,7 +479,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
       <!-- Step 02: Hand picking stem -->
       <div class="st">
         <div class="si">
-          <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:150px;height:100px;opacity:.65">
+          <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:150px;height:100px;opacity:.95">
             <rect x="8" y="68" width="134" height="6" rx="2" fill="#EDE4D4" stroke="#C4B8A8" stroke-width=".7"/>
             <line x1="24" y1="74" x2="20" y2="94" stroke="#C4B8A8" stroke-width="1.1" stroke-linecap="round"/>
             <line x1="126" y1="74" x2="130" y2="94" stroke="#C4B8A8" stroke-width="1.1" stroke-linecap="round"/>
@@ -403,7 +508,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
       <!-- Step 03: Wrapped bouquet -->
       <div class="st">
         <div class="si">
-          <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:150px;height:100px;opacity:.65">
+          <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:150px;height:100px;opacity:.95">
             <path d="M55 100C52 84 49 66 51 50L75 44L99 50C101 66 98 84 95 100Z" fill="#D4C4A8" opacity=".3"/>
             <path d="M53 92C50 76 49 58 51 48" stroke="#C4B4A0" stroke-width=".7" opacity=".32" stroke-linecap="round"/>
             <path d="M97 92C100 76 101 58 99 48" stroke="#C4B4A0" stroke-width=".7" opacity=".32" stroke-linecap="round"/>
@@ -434,12 +539,12 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
 <section id="gl">
   <div class="gi">
     <span class="lbl rv">Moments in Bloom</span>
-    <h2 class="ttl rv">The Experience,<br><em>In Full</em></h2>
+    <h2 class="ttl rv">The Experience, <em>In Full</em></h2>
     <div class="gg rv">
 
       <!-- 1: Full bloom bar table -->
       <div class="gp gp1"><div class="gb gc1">
-        <svg viewBox="0 0 680 215" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:.55;padding:0 14px">
+        <svg viewBox="0 0 680 215" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:.94;padding:0 14px">
           <rect x="36" y="138" width="608" height="20" rx="3" fill="#EDE4D4" stroke="#C4B8A8" stroke-width="1"/>
           <line x1="36" y1="148" x2="644" y2="148" stroke="#C4B8A8" stroke-width=".6" opacity=".4"/>
           <line x1="74" y1="158" x2="68" y2="196" stroke="#C4B8A8" stroke-width="1.4" stroke-linecap="round"/>
@@ -484,7 +589,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
 
       <!-- 2: Hands choosing stems -->
       <div class="gp gp2"><div class="gb gc2" style="height:100%">
-        <svg viewBox="0 0 230 310" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:.55">
+        <svg viewBox="0 0 230 310" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:.94">
           <rect x="68" y="196" width="94" height="74" rx="5" fill="#D4C4B0" stroke="#B0A088" stroke-width="1.1"/>
           <rect x="62" y="187" width="106" height="15" rx="3.5" fill="#C8B8A4" stroke="#A8987E" stroke-width="1.2"/>
           <line x1="68" y1="224" x2="162" y2="224" stroke="#C4B8A8" stroke-width=".6" opacity=".35"/>
@@ -525,7 +630,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
 
       <!-- 3: Wrapped bouquet -->
       <div class="gp gp3"><div class="gb gc3" style="height:100%">
-        <svg viewBox="0 0 440 310" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:.55">
+        <svg viewBox="0 0 440 310" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:.94">
           <path d="M154 310C147 276 140 240 143 204L220 192L297 204C300 240 293 276 286 310Z" fill="#D4C4A8" opacity=".28"/>
           <path d="M150 298C145 260 142 220 145 200" stroke="#C4B4A0" stroke-width=".8" opacity=".3" stroke-linecap="round"/>
           <path d="M290 298C295 260 298 220 295 200" stroke="#C4B4A0" stroke-width=".8" opacity=".3" stroke-linecap="round"/>
@@ -558,78 +663,104 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
         <span class="gt">Finished wrapped bouquet</span>
       </div></div>
 
-      <!-- 4: Guests gathered - thin elegant abstract figures -->
+      <!-- 4: Guests gathered -->
       <div class="gp gp4"><div class="gb gc4">
-        <svg viewBox="0 0 720 230" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:.58;padding:0 14px">
-          <!-- Ambient background florals -->
-          <circle cx="60" cy="42" r="18" fill="#F5EDE4" opacity=".3"/><ellipse cx="60" cy="42" rx="15" ry="19" fill="#E8D8D0" opacity=".24" transform="rotate(-12 60 42)"/><circle cx="60" cy="42" r="7" fill="#E8D8CC" opacity=".28"/>
-          <circle cx="660" cy="36" r="16" fill="#DCE8D4" opacity=".28"/><circle cx="660" cy="36" r="6" fill="#C4D4BC" opacity=".26"/>
-          <circle cx="360" cy="16" r="13" fill="#F5EDE4" opacity=".24"/>
-
-          <!-- Long table -->
+        <svg viewBox="0 0 720 230" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:.94;padding:0 14px">
+          <!-- Ambient florals -->
+          <circle cx="60" cy="42" r="18" fill="#F5EDE4" opacity=".28"/><ellipse cx="60" cy="42" rx="15" ry="19" fill="#E8D8D0" opacity=".2" transform="rotate(-12 60 42)"/><circle cx="60" cy="42" r="7" fill="#E8D8CC" opacity=".24"/>
+          <circle cx="660" cy="36" r="16" fill="#DCE8D4" opacity=".25"/><circle cx="660" cy="36" r="6" fill="#C4D4BC" opacity=".22"/>
+          <ellipse cx="268" cy="44" rx="5" ry="8" fill="#E8D8D0" opacity=".18" transform="rotate(-20 268 44)"/>
+          <ellipse cx="453" cy="34" rx="4.5" ry="7" fill="#C8D4C0" opacity=".17" transform="rotate(14 453 34)"/>
+          <!-- Table -->
           <rect x="100" y="158" width="520" height="11" rx="2" fill="#DDD0C0" stroke="#C4B8A0" stroke-width=".8"/>
           <line x1="138" y1="169" x2="132" y2="212" stroke="#C4B8A0" stroke-width="1.2" stroke-linecap="round"/>
           <line x1="582" y1="169" x2="588" y2="212" stroke="#C4B8A0" stroke-width="1.2" stroke-linecap="round"/>
-
-          <!-- Central blooms on table -->
+          <!-- Central blooms -->
           <line x1="336" y1="158" x2="334" y2="104" stroke="#B8C4B2" stroke-width="1.2" stroke-linecap="round"/>
           <line x1="348" y1="158" x2="347" y2="90" stroke="#B8C4B2" stroke-width="1.2" stroke-linecap="round"/>
           <line x1="360" y1="158" x2="361" y2="86" stroke="#C4B8A8" stroke-width="1.3" stroke-linecap="round"/>
           <line x1="372" y1="158" x2="374" y2="92" stroke="#B8C4B2" stroke-width="1.2" stroke-linecap="round"/>
           <line x1="384" y1="158" x2="387" y2="106" stroke="#B8C4B2" stroke-width="1.1" stroke-linecap="round"/>
-          <circle cx="334" cy="95" r="8" fill="#F0E4DC" opacity=".82"/><ellipse cx="334" cy="95" rx="7" ry="9" fill="#E8D8D0" opacity=".68" transform="rotate(-8 334 95)"/><circle cx="334" cy="95" r="3.5" fill="#E0CCC4" opacity=".75"/>
-          <circle cx="347" cy="81" r="9" fill="#DCE8D4" opacity=".82"/><ellipse cx="347" cy="81" rx="7" ry="10" fill="#C8D4C0" opacity=".68" transform="rotate(14 347 81)"/><circle cx="347" cy="81" r="3.8" fill="#C0CEBC" opacity=".76"/>
-          <circle cx="361" cy="76" r="11" fill="#F5EDE4" opacity=".85"/><ellipse cx="361" cy="76" rx="9" ry="12" fill="#EDE4D8" opacity=".73" transform="rotate(-5 361 76)"/><circle cx="361" cy="76" r="4.5" fill="#E4D8CC" opacity=".78"/>
-          <circle cx="374" cy="82" r="8" fill="#F0E4DC" opacity=".82"/><ellipse cx="374" cy="82" rx="7" ry="9" fill="#E8D8D0" opacity=".67" transform="rotate(11 374 82)"/><circle cx="374" cy="82" r="3.5" fill="#DCC8C0" opacity=".75"/>
-          <circle cx="387" cy="97" r="7" fill="#DCE8D4" opacity=".78"/><ellipse cx="387" cy="97" rx="6" ry="8" fill="#C8D4C0" opacity=".63" transform="rotate(-2 387 97)"/><circle cx="387" cy="97" r="3" fill="#C0CEBC" opacity=".72"/>
+          <circle cx="334" cy="95" r="8" fill="#F0E4DC" opacity=".84"/><ellipse cx="334" cy="95" rx="7" ry="9" fill="#E8D8D0" opacity=".7" transform="rotate(-8 334 95)"/><circle cx="334" cy="95" r="3.5" fill="#E0CCC4" opacity=".78"/>
+          <circle cx="347" cy="81" r="9" fill="#DCE8D4" opacity=".84"/><ellipse cx="347" cy="81" rx="7" ry="10" fill="#C8D4C0" opacity=".7" transform="rotate(14 347 81)"/><circle cx="347" cy="81" r="3.8" fill="#C0CEBC" opacity=".78"/>
+          <circle cx="361" cy="76" r="11" fill="#F5EDE4" opacity=".88"/><ellipse cx="361" cy="76" rx="9" ry="12" fill="#EDE4D8" opacity=".76" transform="rotate(-5 361 76)"/><circle cx="361" cy="76" r="4.5" fill="#E4D8CC" opacity=".82"/>
+          <circle cx="374" cy="82" r="8" fill="#F0E4DC" opacity=".84"/><ellipse cx="374" cy="82" rx="7" ry="9" fill="#E8D8D0" opacity=".7" transform="rotate(11 374 82)"/><circle cx="374" cy="82" r="3.5" fill="#DCC8C0" opacity=".78"/>
+          <circle cx="387" cy="97" r="7" fill="#DCE8D4" opacity=".8"/><ellipse cx="387" cy="97" rx="6" ry="8" fill="#C8D4C0" opacity=".64" transform="rotate(-2 387 97)"/><circle cx="387" cy="97" r="3" fill="#C0CEBC" opacity=".74"/>
 
-          <!-- FIGURE LEFT: thin elegant abstract person -->
-          <!-- Torso: slim tapered rectangle -->
-          <path d="M195 158 C193 144 192 130 193 118 C194 110 199 107 205 108 C211 107 216 110 217 118 C218 130 217 144 215 158Z" fill="none" stroke="#D4C4B4" stroke-width="1.2" opacity=".55"/>
-          <!-- Neck: thin line -->
-          <line x1="205" y1="108" x2="205" y2="98" stroke="#D4C4B4" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
-          <!-- Head: small delicate circle, no fill just stroke -->
-          <circle cx="205" cy="91" r="9" fill="none" stroke="#D4C4B4" stroke-width="1.2" opacity=".5"/>
-          <!-- Hair: soft arc above head -->
-          <path d="M196 88 C197 80 201 75 205 74 C209 75 213 80 214 88" fill="none" stroke="#C4B4A4" stroke-width="1.5" stroke-linecap="round" opacity=".42"/>
-          <!-- Left arm: single thin curved line reaching toward table -->
-          <path d="M193 122 C182 128 168 136 154 143" fill="none" stroke="#D4C4B4" stroke-width="1.4" stroke-linecap="round" opacity=".48"/>
-          <!-- Right arm: resting down -->
-          <path d="M217 124 C221 132 223 144 222 158" fill="none" stroke="#D4C4B4" stroke-width="1.4" stroke-linecap="round" opacity=".42"/>
-          <!-- Small held bouquet tip near left hand -->
-          <line x1="152" y1="143" x2="152" y2="158" stroke="#B8C4B2" stroke-width="1.1" stroke-linecap="round" opacity=".45"/>
-          <circle cx="152" cy="139" r="7" fill="#F0E4DC" opacity=".58"/><ellipse cx="152" cy="139" rx="6" ry="7" fill="#E8D8D0" opacity=".48" transform="rotate(-6 152 139)"/><circle cx="152" cy="139" r="3" fill="#E0CCC4" opacity=".55"/>
+          <!-- PERSON LEFT — warm skin, flowing medium-length hair, reaching for bouquet -->
+          <path d="M176 158 C175 148 176 140 180 136 L204 136 C208 140 209 148 208 158Z" fill="#DDD0C4" opacity=".40"/>
+          <path d="M181 136 C180 126 179 115 181 108 C182 102 188 99 194 99 C200 99 206 102 207 108 C209 115 208 126 207 136Z" fill="#CEC0B0" opacity=".50"/>
+          <rect x="181" y="132" width="26" height="3" rx="1.5" fill="#BCA898" opacity=".32"/>
+          <path d="M194 99 C193 94 193 91 193 88" stroke="#C8B8A8" stroke-width="4.5" stroke-linecap="round" opacity=".44"/>
+          <!-- Head: smooth filled oval — identical approach to center person -->
+          <ellipse cx="192" cy="79" rx="11.5" ry="13" fill="#D8C8B8" opacity=".55"/>
+          <!-- Hair crown — exact same shape as middle person, centered on head -->
+          <path d="M181 76 C181 65 185 57 192 55 C199 57 203 65 203 76 C201 70 197 67 192 67 C187 67 183 70 181 76Z" fill="#A89080" opacity=".50"/>
+          <!-- Bun centered on top — exact same two ovals as middle person -->
+          <ellipse cx="192" cy="54" rx="7" ry="5.5" fill="#A89080" opacity=".52"/>
+          <ellipse cx="192" cy="54" rx="5" ry="3.5" fill="#987060" opacity=".38"/>
+          <!-- Arms -->
+          <path d="M181 118 C172 122 160 129 150 136" stroke="#C8B8A8" stroke-width="7" stroke-linecap="round" opacity=".44"/>
+          <path d="M150 136 C147 138 144 140 142 141" stroke="#C8B8A8" stroke-width="5" stroke-linecap="round" opacity=".38"/>
+          <path d="M207 120 C214 130 216 144 215 158" stroke="#C8B8A8" stroke-width="7" stroke-linecap="round" opacity=".38"/>
+          <!-- Bouquet -->
+          <line x1="141" y1="141" x2="139" y2="159" stroke="#B8C4B2" stroke-width="1.5" stroke-linecap="round" opacity=".62"/>
+          <circle cx="141" cy="135" r="10" fill="#F0E4DC" opacity=".78"/><ellipse cx="141" cy="135" rx="8.5" ry="10" fill="#E8D8D0" opacity=".64" transform="rotate(-7 141 135)"/><circle cx="141" cy="135" r="4.5" fill="#E0CCC4" opacity=".72"/>
+          <circle cx="136" cy="128" r="7" fill="#DCE8D4" opacity=".68"/><circle cx="136" cy="128" r="3" fill="#C4D4BC" opacity=".64"/>
 
-          <!-- FIGURE CENTER: tall thin, arms slightly out -->
-          <path d="M350 158 C348 141 347 122 348 110 C349 101 355 97 362 98 C369 97 375 101 376 110 C377 122 376 141 374 158Z" fill="none" stroke="#D4C4B4" stroke-width="1.2" opacity=".5"/>
-          <line x1="362" y1="98" x2="362" y2="87" stroke="#D4C4B4" stroke-width="1.5" stroke-linecap="round" opacity=".46"/>
-          <circle cx="362" cy="80" r="8.5" fill="none" stroke="#D4C4B4" stroke-width="1.2" opacity=".46"/>
-          <path d="M353 77 C354 70 358 65 362 64 C366 65 370 70 371 77" fill="none" stroke="#C4B4A4" stroke-width="1.4" stroke-linecap="round" opacity=".38"/>
-          <!-- Arms slightly raised -->
-          <path d="M348 114 C337 112 324 113 315 117" fill="none" stroke="#D4C4B4" stroke-width="1.4" stroke-linecap="round" opacity=".44"/>
-          <path d="M376 114 C387 112 400 113 409 117" fill="none" stroke="#D4C4B4" stroke-width="1.4" stroke-linecap="round" opacity=".44"/>
-          <!-- Tiny stem in each hand -->
-          <line x1="314" y1="117" x2="312" y2="101" stroke="#B8C4B2" stroke-width="1.1" stroke-linecap="round" opacity=".45"/>
-          <circle cx="312" cy="97" r="5.5" fill="#F0E4DC" opacity=".55"/><circle cx="312" cy="97" r="2" fill="#E0CCC4" opacity=".52"/>
-          <line x1="410" y1="117" x2="412" y2="101" stroke="#B8C4B2" stroke-width="1.1" stroke-linecap="round" opacity=".45"/>
-          <circle cx="412" cy="97" r="5.5" fill="#DCE8D4" opacity=".52"/><circle cx="412" cy="97" r="2" fill="#C4D4BC" opacity=".48"/>
+          <!-- PERSON CENTER — hair in a neat updo bun, both arms working stems -->
+          <path d="M343 158 C342 148 343 140 347 136 L375 136 C379 140 380 148 379 158Z" fill="#DDD0C4" opacity=".38"/>
+          <path d="M348 136 C347 124 346 112 348 104 C350 97 356 93 362 94 C368 93 374 97 376 104 C378 112 377 124 376 136Z" fill="#CEC0B0" opacity=".48"/>
+          <rect x="348" y="132" width="28" height="3" rx="1.5" fill="#BCA898" opacity=".30"/>
+          <path d="M362 94 C361 89 361 85 361 82" stroke="#C8B8A8" stroke-width="4.5" stroke-linecap="round" opacity=".40"/>
+          <!-- Head -->
+          <ellipse cx="360" cy="73" rx="11.5" ry="12.5" fill="#D8C8B8" opacity=".52"/>
+          <!-- Clean updo: hair swept up into smooth bun shape, no trailing lines -->
+          <path d="M349 70 C349 59 354 51 360 50 C366 51 371 59 371 70 C369 64 365 61 360 61 C355 61 351 64 349 70Z" fill="#A89080" opacity=".50"/>
+          <!-- Bun: clean oval on top, no spikes -->
+          <ellipse cx="360" cy="49" rx="7" ry="5.5" fill="#A89080" opacity=".52"/>
+          <ellipse cx="360" cy="49" rx="5" ry="3.5" fill="#987060" opacity=".38"/>
+          <!-- Arms both lifted -->
+          <path d="M348 110 C338 106 324 104 314 107" stroke="#C8B8A8" stroke-width="7" stroke-linecap="round" opacity=".42"/>
+          <path d="M314 107 C310 108 307 109 305 110" stroke="#C8B8A8" stroke-width="5" stroke-linecap="round" opacity=".36"/>
+          <path d="M376 110 C386 106 400 104 410 107" stroke="#C8B8A8" stroke-width="7" stroke-linecap="round" opacity=".42"/>
+          <path d="M410 107 C414 108 417 109 419 110" stroke="#C8B8A8" stroke-width="5" stroke-linecap="round" opacity=".36"/>
+          <!-- Stems in hands -->
+          <line x1="304" y1="110" x2="302" y2="91" stroke="#B8C4B2" stroke-width="1.5" stroke-linecap="round" opacity=".60"/>
+          <circle cx="302" cy="86" r="8" fill="#F0E4DC" opacity=".76"/><ellipse cx="302" cy="86" rx="6.5" ry="8" fill="#E8D8D0" opacity=".62" transform="rotate(-9 302 86)"/><circle cx="302" cy="86" r="3.5" fill="#E0CCC4" opacity=".70"/>
+          <line x1="420" y1="110" x2="422" y2="91" stroke="#B8C4B2" stroke-width="1.5" stroke-linecap="round" opacity=".60"/>
+          <circle cx="422" cy="86" r="8" fill="#DCE8D4" opacity=".72"/><ellipse cx="422" cy="86" rx="6.5" ry="8" fill="#C8D4C0" opacity=".60" transform="rotate(11 422 86)"/><circle cx="422" cy="86" r="3.5" fill="#C4D4BC" opacity=".67"/>
 
-          <!-- FIGURE RIGHT: leaning slightly, engaged -->
-          <path d="M508 158 C506 144 505 130 506 119 C507 111 512 108 519 109 C526 108 531 111 532 119 C533 130 532 144 530 158Z" fill="none" stroke="#D4C4B4" stroke-width="1.2" opacity=".48"/>
-          <line x1="519" y1="109" x2="519" y2="99" stroke="#D4C4B4" stroke-width="1.5" stroke-linecap="round" opacity=".44"/>
-          <circle cx="519" cy="92" r="8.5" fill="none" stroke="#D4C4B4" stroke-width="1.2" opacity=".44"/>
-          <path d="M510 89 C511 82 515 77 519 76 C523 77 527 82 528 89" fill="none" stroke="#C4B4A4" stroke-width="1.4" stroke-linecap="round" opacity=".36"/>
-          <!-- One arm reaching toward table center -->
-          <path d="M506 122 C494 128 480 135 468 141" fill="none" stroke="#D4C4B4" stroke-width="1.4" stroke-linecap="round" opacity=".44"/>
-          <path d="M532 124 C544 132 550 142 551 158" fill="none" stroke="#D4C4B4" stroke-width="1.4" stroke-linecap="round" opacity=".38"/>
-          <!-- Bouquet near right hand -->
-          <line x1="465" y1="141" x2="465" y2="158" stroke="#B8C4B2" stroke-width="1.1" stroke-linecap="round" opacity=".43"/>
-          <circle cx="465" cy="137" r="7" fill="#DCE8D4" opacity=".56"/><circle cx="465" cy="137" r="2.8" fill="#C4D4BC" opacity=".52"/>
-
-          <!-- Very gentle floating petals -->
-          <ellipse cx="268" cy="44" rx="5" ry="8" fill="#E8D8D0" opacity=".2" transform="rotate(-20 268 44)"/>
-          <ellipse cx="453" cy="34" rx="4.5" ry="7" fill="#C8D4C0" opacity=".19" transform="rotate(14 453 34)"/>
-          <ellipse cx="558" cy="50" rx="4" ry="6.5" fill="#E8D8D0" opacity=".18" transform="rotate(-6 558 50)"/>
+          <!-- PERSON RIGHT — completely different: seated/leaning back slightly, 
+               wrapping a bouquet with kraft paper, both hands down at table level -->
+          <path d="M497 158 C496 148 497 140 501 136 L529 136 C533 140 534 148 533 158Z" fill="#DDD0C4" opacity=".39"/>
+          <path d="M502 136 C500 124 499 112 501 104 C503 97 509 93 516 94 C523 93 529 97 530 104 C532 112 531 124 530 136Z" fill="#CEC0B0" opacity=".49"/>
+          <rect x="502" y="132" width="28" height="3" rx="1.5" fill="#BCA898" opacity=".31"/>
+          <!-- Neck, slightly tilted forward looking down at work -->
+          <path d="M516 94 C515 90 514 87 513 84" stroke="#C8B8A8" stroke-width="4.5" stroke-linecap="round" opacity=".43"/>
+          <!-- Head: slightly tilted forward (looking down at wrapping) -->
+          <ellipse cx="512" cy="75" rx="11" ry="12.5" fill="#D8C8B8" opacity=".53" transform="rotate(8 512 75)"/>
+          <!-- Hair: loose waves falling to one side — clean shape, not spiky -->
+          <path d="M501 72 C501 61 506 53 512 51 C518 53 523 61 523 72 C521 66 517 63 512 62 C507 63 503 66 501 72Z" fill="#A89080" opacity=".52"/>
+          <!-- Wavy hair on left side only — one clean flowing path -->
+          <path d="M501 72 C498 80 498 92 500 104 C503 101 502 91 503 82 C502 78 501 75 501 72Z" fill="#A89080" opacity=".42"/>
+          <!-- DIFFERENT ACTION: both arms down, wrapping/tying bouquet on table -->
+          <!-- Left arm down to table -->
+          <path d="M502 120 C500 130 499 142 500 155" stroke="#C8B8A8" stroke-width="7" stroke-linecap="round" opacity=".42"/>
+          <!-- Right arm also angled down to table -->
+          <path d="M530 120 C532 130 533 142 532 155" stroke="#C8B8A8" stroke-width="7" stroke-linecap="round" opacity=".40"/>
+          <!-- Bouquet being wrapped on table — larger, more complete -->
+          <path d="M484 158 C484 148 486 140 492 136 L540 136 C544 140 544 148 542 158Z" fill="#D4C4B0" opacity=".28"/>
+          <path d="M490 148 C490 143 494 140 502 140 L528 140 C534 143 534 148 532 155" stroke="#C4B4A0" stroke-width=".8" opacity=".35"/>
+          <!-- Several stems visible -->
+          <line x1="502" y1="136" x2="499" y2="112" stroke="#B8C4B2" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+          <line x1="512" y1="136" x2="510" y2="106" stroke="#B8C4B2" stroke-width="1.4" stroke-linecap="round" opacity=".58"/>
+          <line x1="522" y1="136" x2="524" y2="110" stroke="#B8C4B2" stroke-width="1.3" stroke-linecap="round" opacity=".55"/>
+          <circle cx="499" cy="107" r="8" fill="#F0E4DC" opacity=".80"/><ellipse cx="499" cy="107" rx="7" ry="8.5" fill="#E8D8D0" opacity=".68" transform="rotate(-10 499 107)"/><circle cx="499" cy="107" r="3.5" fill="#E0CCC4" opacity=".74"/>
+          <circle cx="510" cy="101" r="9" fill="#F5EDE4" opacity=".84"/><ellipse cx="510" cy="101" rx="7.5" ry="9.5" fill="#EDE4D8" opacity=".72" transform="rotate(-4 510 101)"/><circle cx="510" cy="101" r="4" fill="#E4D8CC" opacity=".78"/>
+          <circle cx="524" cy="105" r="7.5" fill="#DCE8D4" opacity=".78"/><ellipse cx="524" cy="105" rx="6" ry="7.5" fill="#C8D4C0" opacity=".65" transform="rotate(9 524 105)"/><circle cx="524" cy="105" r="3" fill="#C4D4BC" opacity=".72"/>
+          <!-- Kraft wrap ribbon being tied — two curved lines meeting at hands -->
+          <path d="M500 155 C505 151 519 151 530 155" stroke="#C4B8A8" stroke-width="1.4" stroke-linecap="round" opacity=".50"/>
         </svg>
         <span class="gt">Guests creating, laughing, blooming</span>
       </div></div>
@@ -673,7 +804,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
       <p class="pid">Ideal for intimate gatherings and smaller celebrations.</p>
       <p class="pd">Styled bloom bar setup, curated florals, bouquet wrapping materials, and guest bouquet-making experience.</p>
       <p class="pp">$650</p><span class="pm">Starting price</span>
-      <a href="#ct" class="btn bo">Inquire Now</a>
+      <a href="#" class="btn bo" onclick="openMail();return false;">Inquire Now</a>
     </div>
     <!-- Package 2 -->
     <div class="pc">
@@ -709,7 +840,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
       <p class="pid">Designed for larger events with an abundant floral selection.</p>
       <p class="pd">Expanded floral variety, styled setup, wrapping station details, and a more impactful presentation and fuller guest experience.</p>
       <p class="pp">$950</p><span class="pm">Starting price</span>
-      <a href="#ct" class="btn bo">Inquire Now</a>
+      <a href="#" class="btn bo" onclick="openMail();return false;">Inquire Now</a>
     </div>
     <!-- Package 3: Rental -->
     <div class="pc">
@@ -742,7 +873,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
       <p class="pid">For clients who love the look of our signature bloom bar display.</p>
       <p class="pd">Custom-made cart and floral display stands. Rental-only option; floral stems and styling services are not included.</p>
       <p class="pp">Custom</p><span class="pm">Quote upon inquiry</span>
-      <a href="#ct" class="btn bo">Request a Quote</a>
+      <a href="#" class="btn bo" onclick="openMail();return false;">Request a Quote</a>
     </div>
   </div>
   <p class="pfn rv">* Packages begin at the pricing above. Final proposals are customized based on guest count, floral recipe, event duration, location, and any custom add-ons. Applicable Massachusetts sales tax will be reflected in your final quote.</p>
@@ -750,10 +881,51 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
 
 <!-- CTA -->
 <section id="ct">
-  <span class="lbl rv">Let&rsquo;s Create Together</span>
-  <h2 class="ttl rv">Ready to bring<br><em>Petal &amp; Stem</em><br>to your event?</h2>
-  <p class="cp rv">Whether you&rsquo;re planning an intimate shower, birthday celebration, branded event, or anything in between, I&rsquo;d love to create a bloom bar experience your guests will remember.</p>
-  <a href="mailto:hello@petalandstem.com" class="btn bs rv">Inquire Now</a>
+  <div class="ct-grid">
+    <div class="ct-text">
+      <span class="lbl rv">Let&rsquo;s Create Together</span>
+      <h2 class="ttl rv">Ready to bring<br><em>Petal &amp; Stem</em><br>to your event?</h2>
+      <p class="cp rv">Whether you&rsquo;re planning an intimate shower, birthday celebration, branded event, or anything in between, I&rsquo;d love to create a bloom bar experience your guests will remember.</p>
+      <div class="rv"><a href="#" class="btn bs" onclick="openMail();return false;">Inquire Now</a></div>
+    </div>
+    <div class="ct-img">
+      <svg viewBox="0 0 380 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:.92">
+        <path d="M154 440 C154 396 151 352 153 306 C155 266 152 228 152 190" stroke="#B8C4B2" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M190 440 C190 392 188 346 189 298 C190 254 190 210 190 172" stroke="#C4B8A8" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M226 440 C226 398 229 354 228 308 C227 268 228 230 228 192" stroke="#B8C4B2" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M152 350 C132 330 108 326 96 306 C114 308 146 320 152 338" fill="#C8D4C0" opacity=".68"/>
+        <path d="M189 300 C212 278 238 274 248 252 C228 256 198 270 189 288" fill="#C8D4C0" opacity=".6"/>
+        <path d="M228 346 C248 324 272 318 282 296 C264 299 234 312 228 332" fill="#D0D8C8" opacity=".56"/>
+        <ellipse cx="152" cy="172" rx="18" ry="23" fill="#EDE4D4" opacity=".9" transform="rotate(-12 152 172)"/>
+        <ellipse cx="152" cy="172" rx="18" ry="23" fill="#E8D8D0" opacity=".85" transform="rotate(24 152 172)"/>
+        <ellipse cx="152" cy="172" rx="18" ry="23" fill="#DDD0C8" opacity=".8" transform="rotate(60 152 172)"/>
+        <circle cx="152" cy="172" r="21" fill="#F5EDE4" opacity=".94"/>
+        <circle cx="152" cy="172" r="8.5" fill="#EAD8CC" opacity=".9"/>
+        <ellipse cx="190" cy="150" rx="22" ry="28" fill="#F0E8DE" opacity=".92" transform="rotate(-8 190 150)"/>
+        <ellipse cx="190" cy="150" rx="22" ry="28" fill="#EAE0D4" opacity=".87" transform="rotate(28 190 150)"/>
+        <ellipse cx="190" cy="150" rx="22" ry="28" fill="#E2D8CC" opacity=".83" transform="rotate(64 190 150)"/>
+        <ellipse cx="190" cy="150" rx="22" ry="28" fill="#EEE6DA" opacity=".85" transform="rotate(100 190 150)"/>
+        <circle cx="190" cy="150" r="25" fill="#FAF4EE" opacity=".95"/>
+        <circle cx="190" cy="150" r="10" fill="#ECD8CC" opacity=".88"/>
+        <ellipse cx="228" cy="174" rx="17" ry="22" fill="#C8D4C0" opacity=".88" transform="rotate(10 228 174)"/>
+        <ellipse cx="228" cy="174" rx="17" ry="22" fill="#B8C4B2" opacity=".82" transform="rotate(50 228 174)"/>
+        <circle cx="228" cy="174" r="20" fill="#DCE8D4" opacity=".93"/>
+        <circle cx="228" cy="174" r="8" fill="#C4D4BC" opacity=".87"/>
+        <ellipse cx="132" cy="156" rx="8" ry="11" fill="#E8D8D0" opacity=".65" transform="rotate(-20 132 156)"/>
+        <circle cx="132" cy="156" r="9" fill="#F0E4DC" opacity=".78"/>
+        <ellipse cx="248" cy="158" rx="7" ry="10" fill="#C4D0BC" opacity=".62" transform="rotate(16 248 158)"/>
+        <circle cx="248" cy="158" r="8" fill="#DCE8D4" opacity=".75"/>
+        <ellipse cx="172" cy="134" rx="6" ry="8" fill="#EDE4D4" opacity=".58" transform="rotate(-10 172 134)"/>
+        <ellipse cx="210" cy="128" rx="6" ry="8" fill="#C8D4C0" opacity=".54" transform="rotate(12 210 128)"/>
+        <path d="M96 310 C76 292 62 270 54 246" stroke="#B8C4B2" stroke-width="1.5" stroke-linecap="round" opacity=".52"/>
+        <ellipse cx="50" cy="240" rx="9" ry="13" fill="#C8D4C0" opacity=".44" transform="rotate(-16 50 240)"/>
+        <path d="M282 300 C304 280 318 258 324 232" stroke="#B8C4B2" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        <ellipse cx="326" cy="226" rx="9" ry="12" fill="#C8D4C0" opacity=".42" transform="rotate(18 326 226)"/>
+        <path d="M132 440 C128 414 122 386 124 360 L190 352 L256 360 C258 386 252 414 248 440 Z" fill="#C4B8A8" opacity=".3"/>
+        <path d="M124 368 C148 362 230 362 256 368" stroke="#C4B8A8" stroke-width="1.5" stroke-linecap="round" opacity=".52"/>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -763,6 +935,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
 </footer>
 
 <script>
+function openMail(){var a=document.createElement("a");a.href="mailto:whitney.foote@gmail.com?subject=Bloom%20Bar%20Inquiry";document.body.appendChild(a);a.click();document.body.removeChild(a);}
 var els=document.querySelectorAll('.rv');
 var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e,i){
