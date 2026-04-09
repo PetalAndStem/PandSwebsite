@@ -41,15 +41,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 52px;display:fl
 .hp4{width:220px;height:280px;background:rgba(232,216,208,.12);top:8%;right:8%;transform:rotate(-32deg);animation:flt 10s 2s ease-in-out infinite}
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
 /* HERO - unified single canvas */
-.hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden;padding:0 52px}
-.hc{position:relative;z-index:3;width:52%;padding-right:24px}
+.hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden;padding:0 6vw}
+.hc{position:relative;z-index:3;width:55%;padding-right:16px}
 .hey{font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--td);margin-bottom:16px;animation:ri 1.4s .1s both}
 .hti{font-size:clamp(52px,7.5vw,92px);color:var(--dk);line-height:1.05;margin-bottom:8px;animation:ri 1.4s .3s both;font-family:'Great Vibes',cursive;font-weight:400}
 .hhl{font-family:var(--serif);font-size:clamp(15px,1.8vw,20px);font-weight:300;font-style:italic;color:var(--md);line-height:1.5;margin-bottom:10px;margin-top:18px;animation:ri 1.4s .55s both}
 .hsb{font-family:var(--sans);font-size:13px;letter-spacing:.03em;color:var(--lt);max-width:380px;margin:0 0 32px;line-height:1.85;animation:ri 1.4s .65s both}
 .hbw{animation:ri 1.4s .8s both}
-/* Hero botanical SVG — overlaps into right half of text area */
-.hsvg{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:56%;height:96%;z-index:1;pointer-events:none;opacity:.78;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.4) 12%,black 28%);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.4) 12%,black 28%)}
+/* Hero botanical SVG — pushed left to sit close behind text */
+.hsvg{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:62%;height:100%;z-index:1;pointer-events:none;opacity:.78;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.55) 10%,black 24%);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.55) 10%,black 24%)}
 @keyframes ri{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .scr{position:absolute;bottom:32px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--tp);animation:ri 1.4s 1.3s both;z-index:5}
 .scr::after{content:'';display:block;width:1px;height:44px;background:linear-gradient(to bottom,var(--tp),transparent);animation:pls 2.5s ease-in-out infinite}
@@ -182,12 +182,13 @@ section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;
 /* CTA — unified single-canvas section */
 #ct{background:linear-gradient(150deg,#f0e6dc 0%,#ecddd2 50%,#e8d8cc 100%);padding:110px 52px;position:relative;overflow:hidden}
 #ct::after{display:none}
+.ct-img::before{content:'';position:absolute;top:0;left:0;bottom:0;width:40%;background:linear-gradient(to right,rgba(240,230,220,.85) 0%,transparent 100%);z-index:2;pointer-events:none}
 #ct .lbl{color:var(--td)}
 #ct .ttl{color:#4A3E38;max-width:480px;margin:0 0 16px}
 #ct .cp{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--md);max-width:440px;margin:0 0 42px;line-height:1.7}
-.ct-grid{position:relative;max-width:1100px;margin:0 auto;display:flex;align-items:center;min-height:360px}
-.ct-text{position:relative;z-index:3;max-width:520px}
-.ct-img{position:absolute;right:0;top:50%;transform:translateY(-50%);width:44%;height:100%;pointer-events:none;z-index:1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ct-grid{position:relative;max-width:1000px;margin:0 auto;display:flex;align-items:center;min-height:360px}
+.ct-text{position:relative;z-index:3;max-width:460px}
+.ct-img{position:absolute;right:-30px;top:50%;transform:translateY(-50%);width:52%;height:110%;pointer-events:none;z-index:1;display:flex;align-items:center;justify-content:center;overflow:visible}
 
 /* FOOTER */
 footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38px 52px;display:flex;align-items:center;justify-content:space-between}
