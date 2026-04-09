@@ -9,9 +9,10 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://www.petalandstem.com"><!-- Update with your live URL -->
 <meta property="og:title" content="Petal &amp; Stem — Curated Bloom Bar">
 <meta property="og:description" content="A curated bloom bar experience where guests build their own hand-tied bouquets. Perfect for showers, birthdays, corporate events &amp; celebrations across Massachusetts.">
-<meta property="og:image" content="petal-stem-og.svg">
+<meta property="og:image" content="petal-stem-og.png"><!-- Convert SVG to PNG before deploying -->
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Petal &amp; Stem — Curated Bloom Bar, Massachusetts">
@@ -20,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Petal &amp; Stem — Curated Bloom Bar">
 <meta name="twitter:description" content="A curated bloom bar experience where guests build their own hand-tied bouquets. Perfect for showers, birthdays &amp; celebrations across Massachusetts.">
-<meta name="twitter:image" content="petal-stem-og.svg">
+<meta name="twitter:image" content="petal-stem-og.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +58,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 52px;display:fl
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
 /* HERO - unified single canvas */
 .hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden;padding:0 6vw}
-.hc{position:relative;z-index:3;width:55%;padding-right:16px}
+.hc{position:relative;z-index:3;width:55%;max-width:620px;padding-right:16px}
 .hey{font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--td);margin-bottom:16px;animation:ri 1.4s .1s both}
 .hti{font-size:clamp(52px,7.5vw,92px);color:var(--dk);line-height:1.05;margin-bottom:8px;animation:ri 1.4s .3s both;font-family:'Great Vibes',cursive;font-weight:400}
 .hhl{font-family:var(--serif);font-size:clamp(15px,1.8vw,20px);font-weight:300;font-style:italic;color:var(--md);line-height:1.5;margin-bottom:10px;margin-top:18px;animation:ri 1.4s .55s both}
@@ -71,7 +72,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 52px;display:fl
 @keyframes pls{0%,100%{opacity:.3}50%{opacity:.9}}
 @keyframes sparkle{0%,100%{opacity:0;transform:scale(0)}20%{opacity:.9;transform:scale(1)}80%{opacity:.6;transform:scale(.8)}}
 @keyframes float2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(180deg)}}
-.spark{position:absolute;pointer-events:none;z-index:1}
+.spark{position:absolute;pointer-events:none;z-index:1;will-change:transform}
 .spark::before,.spark::after{content:'';position:absolute;width:3px;height:3px;border-radius:50%}
 .spark::before{background:var(--tp);animation:sparkle 3s ease-in-out infinite}
 .spark::after{background:var(--sg);width:2px;height:2px;top:8px;left:8px;animation:sparkle 3s 1.5s ease-in-out infinite}
@@ -209,7 +210,7 @@ section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;
 /* FOOTER */
 footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38px 52px;display:flex;align-items:center;justify-content:space-between}
 .fl{font-size:24px;color:var(--dk);font-family:'Great Vibes',cursive}
-.fm{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--md)}
+.fm{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--md);white-space:nowrap}
 .fc{font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--md)}
 
 /* RESPONSIVE */
@@ -224,13 +225,13 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
   .hsvg{width:60%;height:65%;right:-10px;top:auto;bottom:-10px;transform:none;opacity:.28;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.4) 20%,black 45%);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.4) 20%,black 45%)}
   .scr{display:flex;bottom:24px}
   #gl{padding:72px 0}.gi{padding:0 22px}
-  .wg{grid-template-columns:1fr}.wt{padding:40px 32px 36px;border-right:none}.wv{height:300px}
+  .wg{grid-template-columns:1fr}.wt{padding:36px 28px 28px;border-right:none}.wv{height:280px}
   .fg{grid-template-columns:1fr;gap:32px;padding:28px}.ff{aspect-ratio:3/4;max-height:340px}
   .og{grid-template-columns:repeat(2,1fr);max-width:100%;margin-left:0;margin-right:0}
   .ss{grid-template-columns:1fr}.sh{white-space:normal}
   .gg{grid-template-columns:1fr}.gp1,.gp2,.gp3,.gp4{grid-column:auto;height:200px}
   .pg{grid-template-columns:1fr}
-  .ct-img{display:none}.ct-text{max-width:100%;position:relative;z-index:3}
+  .ct-img{position:absolute;right:-20px;bottom:-20px;top:auto;transform:none;width:65%;height:80%;opacity:.22;display:flex;overflow:hidden}.ct-img::after{display:none}.ct-text{max-width:100%;position:relative;z-index:3}
   footer{flex-direction:column;gap:10px;text-align:center;padding:30px 20px}
   .hti{font-size:clamp(44px,13vw,72px)}
   #ct{padding:72px 24px}
@@ -271,7 +272,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
     <li><a href="#pk">Packages</a></li>
     <li><a href="#ct">Contact</a></li>
   </ul>
-  <a href="#" class="nc" onclick="openMail();return false;">Inquire Now</a>
+  <a href="#" class="nc" onclick="openMail();return false;" aria-label="Send an inquiry email">Inquire Now</a>
   <button class="mnu" onclick="this.classList.toggle('open');document.querySelector('.nm').classList.toggle('open')" aria-label="Menu">&#9776;</button>
 </nav>
 
@@ -285,7 +286,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
     <h1 class="hti">Petal &amp; Stem</h1>
     <p class="hhl">A curated bloom bar experience for showers, celebrations &amp; events.</p>
     <p class="hsb">An interactive floral experience where guests build their own hand-tied bouquets using thoughtfully selected seasonal blooms.</p>
-    <div class="hbw"><a href="#" class="btn bd" onclick="openMail();return false;">Inquire Now</a></div>
+    <div class="hbw"><a href="#" class="btn bd" onclick="openMail();return false;" aria-label="Send an inquiry email">Inquire Now</a></div>
   </div>
   <!-- Hero botanical -->
   <svg class="hsvg" viewBox="0 0 420 560" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -952,13 +953,14 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:38p
 </footer>
 
 <script>
+document.querySelectorAll('.nm a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nm').classList.remove('open');})});
 function openMail(){var a=document.createElement("a");a.href="mailto:whitney.foote@gmail.com?subject=Bloom%20Bar%20Inquiry";document.body.appendChild(a);a.click();document.body.removeChild(a);}
 var els=document.querySelectorAll('.rv');
 var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e,i){
     if(e.isIntersecting){setTimeout(function(){e.target.classList.add('in')},i*80);io.unobserve(e.target);}
   });
-},{threshold:0.08});
+},{threshold:0.08,rootMargin:"0px 0px -20px 0px"});
 els.forEach(function(el){io.observe(el)});
 </script>
 </body>
