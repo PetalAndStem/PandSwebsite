@@ -208,6 +208,32 @@ section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;
 .ct-img-inner img{width:100%;height:100%;object-fit:cover;display:block}
 .ct-img-frame{position:absolute;top:-16px;right:-16px;width:52%;height:52%;border-top:1px solid rgba(140,125,110,.5);border-right:1px solid rgba(140,125,110,.5);z-index:2;pointer-events:none;opacity:.7}
 
+/* CONTACT FORM */
+.ctf{display:flex;flex-direction:column;gap:18px;margin-top:8px}
+.ctf-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ctf-field{display:flex;flex-direction:column;gap:6px;position:relative}
+.ctf-label{font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--td);font-weight:400}
+.ctf-label .req{color:var(--td);opacity:.6;margin-left:2px}
+.ctf-input,.ctf-select,.ctf-textarea{font-family:var(--serif);font-size:16px;color:var(--dk);background:rgba(255,255,255,.55);border:none;border-bottom:1px solid rgba(140,125,110,.32);padding:10px 2px 10px;transition:border-color .3s,background .3s;width:100%;font-weight:400;line-height:1.5;-webkit-appearance:none;appearance:none;border-radius:0}
+.ctf-textarea{resize:vertical;min-height:96px;font-family:var(--serif);line-height:1.6}
+.ctf-input:focus,.ctf-select:focus,.ctf-textarea:focus{outline:none;border-bottom-color:var(--dk);background:rgba(255,255,255,.78)}
+.ctf-input::placeholder,.ctf-textarea::placeholder{color:var(--lt);font-style:italic;opacity:.7}
+.ctf-select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none'><path d='M1 1.5L6 6.5L11 1.5' stroke='%238C7D6E' stroke-width='1.2' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 4px center;background-size:11px;padding-right:24px;cursor:pointer}
+.ctf-input:invalid:not(:placeholder-shown),.ctf-textarea:invalid:not(:placeholder-shown){border-bottom-color:rgba(180,90,80,.5)}
+.ctf-honeypot{position:absolute !important;left:-9999px !important;width:1px !important;height:1px !important;opacity:0 !important;pointer-events:none !important}
+.ctf-submit{margin-top:10px;align-self:flex-start;cursor:pointer;font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;border:none;color:var(--iv);background:var(--dk);padding:15px 42px;border-radius:40px;transition:all .3s;-webkit-appearance:none;appearance:none}
+.ctf-submit:hover:not(:disabled){background:var(--td);transform:translateY(-1px)}
+.ctf-submit:disabled{opacity:.55;cursor:wait}
+.ctf-status{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--md);margin-top:6px;min-height:1.4em}
+.ctf-status.err{color:#9A4A40}
+.ctf-success{display:none;font-family:var(--serif);font-size:18px;line-height:1.65;color:var(--md);padding:32px 28px;background:rgba(255,255,255,.5);border:1px solid rgba(196,184,168,.4);margin-top:12px}
+.ctf-success.show{display:block;animation:ri 0.7s ease both}
+.ctf-success em{font-style:italic;color:var(--dk);font-size:22px;display:block;margin-bottom:10px}
+@media(max-width:760px){
+  .ctf-row{grid-template-columns:1fr;gap:18px}
+  .ctf-input,.ctf-select,.ctf-textarea{font-size:16px}
+}
+
 /* FOOTER */
 footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:20px 52px;display:flex;justify-content:space-between;align-items:center;gap:24px;text-align:left}
 .fcol{display:flex;align-items:center;gap:14px}
@@ -759,9 +785,9 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:20p
     <li><a href="#pk">Offerings</a></li>
     <li><a href="#gl">Gallery</a></li>
     <li><a href="#ct">Contact</a></li>
-    <li><a href="https://mail.google.com/mail/?view=cm&to=petalandstemblooms@gmail.com&su=Bloom%20Bar%20Inquiry" target="_blank" rel="noopener" class="nc-mobile">Inquire Now</a></li>
+    <li><a href="#ct" class="nc-mobile">Inquire Now</a></li>
   </ul>
-  <a href="https://mail.google.com/mail/?view=cm&to=petalandstemblooms@gmail.com&su=Bloom%20Bar%20Inquiry" target="_blank" rel="noopener" class="nc">Inquire Now</a>
+  <a href="#ct" class="nc">Inquire Now</a>
   <button class="mnu" onclick="this.classList.toggle('open');document.querySelector('.nm').classList.toggle('open')" aria-label="Menu">&#9776;</button>
 </nav>
 
@@ -774,7 +800,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:20p
       <h1 class="hti">Petal &amp; Stem</h1>
       <p class="hhl">A curated bloom bar experience for showers, celebrations &amp; events.</p>
       <p class="hsb">An interactive floral experience where guests build their own hand-tied bouquets using thoughtfully selected seasonal blooms.</p>
-      <div class="hbw"><a href="https://mail.google.com/mail/?view=cm&to=petalandstemblooms@gmail.com&su=Bloom%20Bar%20Inquiry" target="_blank" rel="noopener" class="btn bd" aria-label="Send an inquiry email">Inquire Now</a></div>
+      <div class="hbw"><a href="#ct" class="btn bd" aria-label="Scroll to inquiry form">Inquire Now</a></div>
     </div>
     <div class="hpic">
       <div class="hpic-frame"></div>
@@ -1051,7 +1077,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:20p
       <p class="pid">A refined bloom bar experience featuring classic focal blooms, textural stems, and fresh greenery for beautifully composed bouquets.</p>
       <p class="pd">Includes our signature bloom bar cart which serves as the wrapping station complete with wrapping materials and ribbon accents; curated floral display; mirror detail; and a beautifully styled bouquet-making experience for guests.</p>
       <p class="pp">$600</p><span class="pm">Starting at</span>
-      <a href="https://mail.google.com/mail/?view=cm&to=petalandstemblooms@gmail.com&su=Bloom%20Bar%20Inquiry" target="_blank" rel="noopener" class="btn bo">Inquire Now</a>
+      <a href="#ct?type=signature" class="btn bo" data-inquiry-type="The Signature Bloom Bar">Inquire Now</a>
     </div>
     <div class="pc">
       <div class="pvi">
@@ -1077,7 +1103,7 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:20p
       <p class="pid">For clients who love the look of our signature cart and bloom bar display.</p>
       <p class="pd">Includes our custom-made cart and floral display stands. Rental-only option; floral stems and styling services are not included. Custom quote with available add-ons available upon inquiry.</p>
       <p class="pp">$350</p><span class="pm">Starting at</span>
-      <a href="https://mail.google.com/mail/?view=cm&to=petalandstemblooms@gmail.com&su=Bloom%20Bar%20Rental%20Quote" target="_blank" rel="noopener" class="btn bo">Request a Quote</a>
+      <a href="#ct?type=rental" class="btn bo" data-inquiry-type="Signature Cart &amp; Bloom Bar Display Rental">Request a Quote</a>
     </div>
   </div>
   <p class="pfn rv">* Packages begin at the pricing above. Final proposals are customized based on guest count, floral recipe, event duration, location, and any custom add-ons. Applicable Massachusetts sales tax will be reflected in your final quote.</p>
@@ -1090,7 +1116,55 @@ footer{background:#E8DDD4;border-top:1px solid rgba(196,184,168,.35);padding:20p
       <span class="lbl rv">Let&rsquo;s Create Together</span>
       <h2 class="ttl rv">Ready to bring<br><em>Petal &amp; Stem</em><br>to your event?</h2>
       <p class="cp rv">Whether you&rsquo;re planning an intimate shower, birthday celebration, branded event, or anything in between, I&rsquo;d love to create a bloom bar experience your guests will remember.</p>
-      <div class="rv"><a href="https://mail.google.com/mail/?view=cm&to=petalandstemblooms@gmail.com&su=Bloom%20Bar%20Inquiry" target="_blank" rel="noopener" class="btn bs">Inquire Now</a></div>
+      <form class="ctf rv" id="inquiryForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="d74c9593-e00b-4cb9-9298-889d8a9e65f0">
+        <input type="hidden" name="subject" value="New Inquiry from Petal & Stem Website">
+        <input type="hidden" name="from_name" value="Petal & Stem Website">
+        <input type="checkbox" name="botcheck" class="ctf-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="ctf-row">
+          <div class="ctf-field">
+            <label class="ctf-label" for="if-name">Name<span class="req">*</span></label>
+            <input class="ctf-input" type="text" id="if-name" name="name" required autocomplete="name" placeholder="Your name">
+          </div>
+          <div class="ctf-field">
+            <label class="ctf-label" for="if-email">Email<span class="req">*</span></label>
+            <input class="ctf-input" type="email" id="if-email" name="email" required autocomplete="email" placeholder="you@example.com">
+          </div>
+        </div>
+
+        <div class="ctf-row">
+          <div class="ctf-field">
+            <label class="ctf-label" for="if-phone">Phone</label>
+            <input class="ctf-input" type="tel" id="if-phone" name="phone" autocomplete="tel" placeholder="Optional">
+          </div>
+          <div class="ctf-field">
+            <label class="ctf-label" for="if-date">Event Date</label>
+            <input class="ctf-input" type="date" id="if-date" name="event_date">
+          </div>
+        </div>
+
+        <div class="ctf-field">
+          <label class="ctf-label" for="if-type">Inquiry Type</label>
+          <select class="ctf-select" id="if-type" name="inquiry_type">
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="The Signature Bloom Bar">The Signature Bloom Bar</option>
+            <option value="Signature Cart &amp; Bloom Bar Display Rental">Signature Cart &amp; Bloom Bar Display Rental</option>
+          </select>
+        </div>
+
+        <div class="ctf-field">
+          <label class="ctf-label" for="if-message">Tell Me About Your Event<span class="req">*</span></label>
+          <textarea class="ctf-textarea" id="if-message" name="message" required rows="4" placeholder="A few details about your celebration — guest count, venue, vision, anything you'd like to share."></textarea>
+        </div>
+
+        <button type="submit" class="ctf-submit" id="if-submit">Send Inquiry</button>
+        <div class="ctf-status" id="if-status" role="status" aria-live="polite"></div>
+      </form>
+      <div class="ctf-success rv" id="inquirySuccess" role="status" aria-live="polite">
+        <em>Thank you.</em>
+        Your inquiry has been received. I&rsquo;ll be in touch personally within a day or two to start the conversation.
+      </div>
     </div>
     <div class="ct-img rv">
       <div class="ct-img-frame"></div>
@@ -1602,6 +1676,68 @@ var io=new IntersectionObserver(function(entries){
   });
 },{threshold:0.08,rootMargin:"0px 0px -20px 0px"});
 els.forEach(function(el){io.observe(el)});
+
+/* Inquiry-type pre-fill: hijack offering-card buttons that carry data-inquiry-type */
+document.querySelectorAll('a[data-inquiry-type]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var type=a.getAttribute('data-inquiry-type');
+    var sel=document.getElementById('if-type');
+    if(sel){
+      var opt=Array.from(sel.options).find(function(o){return o.value===type});
+      if(opt) sel.value=type;
+    }
+    var ct=document.getElementById('ct');
+    if(ct) ct.scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(function(){
+      var firstField=document.getElementById('if-name');
+      if(firstField) firstField.focus({preventScroll:true});
+    },700);
+  });
+});
+
+/* Form submission via Web3Forms */
+(function(){
+  var form=document.getElementById('inquiryForm');
+  if(!form) return;
+  var statusEl=document.getElementById('if-status');
+  var submitBtn=document.getElementById('if-submit');
+  var successEl=document.getElementById('inquirySuccess');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    statusEl.textContent='';
+    statusEl.classList.remove('err');
+    if(!form.checkValidity()){
+      statusEl.textContent='Please fill in the required fields.';
+      statusEl.classList.add('err');
+      var firstInvalid=form.querySelector(':invalid');
+      if(firstInvalid) firstInvalid.focus();
+      return;
+    }
+    submitBtn.disabled=true;
+    var originalLabel=submitBtn.textContent;
+    submitBtn.textContent='Sending…';
+    statusEl.textContent='';
+    var data=new FormData(form);
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:data,headers:{'Accept':'application/json'}})
+      .then(function(r){return r.json().then(function(j){return{ok:r.ok,body:j}})})
+      .then(function(res){
+        if(res.ok && res.body && res.body.success){
+          form.style.display='none';
+          successEl.classList.add('show','in');
+          successEl.scrollIntoView({behavior:'smooth',block:'center'});
+        } else {
+          throw new Error((res.body && res.body.message) || 'Submission failed');
+        }
+      })
+      .catch(function(err){
+        statusEl.textContent='Something went wrong. Please try again, or email petalandstemblooms@gmail.com directly.';
+        statusEl.classList.add('err');
+        submitBtn.disabled=false;
+        submitBtn.textContent=originalLabel;
+      });
+  });
+})();
 </script>
 </body>
 </html>
